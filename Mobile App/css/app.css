@@ -1,0 +1,20 @@
+/** Default Styles **/
+@font-face{font-family: source-code-regular; src: url(../font/sourcecodepro-regular-webfont.woff);}
+body{min-width: 320px; font-family: source-code-regular;}
+ul{list-style-type: none;}
+a{color: #ffffff; text-decoration: none;}
+button{cursor: pointer !important; width:100%;}
+/** Contacts Styles **/
+#contacts{display: none; text-align:center;}
+#contacts ul li img.avatar{width: 80px; padding: 8px;}
+#contacts ul li div.name{font-weight: bolder; font-size: 1.35rem;}
+#contacts ul li img.contact{width: 36px; padding: 8px;}
+/** Map Styles **/
+#status img{margin: 0 auto; padding: 20px; display: block;}
+#map{display: none; height: 600px; width :100%;}
+/** Camera and Media Library Styles **/
+#camera, #canvas, #video, #image-area, .photo{display: none;}
+#video, .photo, #canvas-box{margin: 0 auto;}
+#canvas-box, #image-area, .photo, #camera, .error-msg{text-align: center;}
+#video, #canvas, #canvas-box, .photo{width: 100% !important; max-width: 400px !important;}
+.error-msg{color: #fff; font-size: 1.5rem; padding: 8px;}

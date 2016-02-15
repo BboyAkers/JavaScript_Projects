@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML5 Mobile App Project</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/topcoat-mobile-dark.min.css">
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+	<body>
+		<main id="wrapper">
+			
+			<button id="contacts-button" class="topcoat-button--large">View Contacts</button>
+			<section class="topcoat-list__container" id="contacts"><ul class="topcoat-list"></ul></section>
+
+			<button id="maps-button" class="topcoat-button--large">View Map</button>
+			<section id="map"><span id="status"><img src="img/ajax-loader.gif"></span></section>
+
+			<button id="camera-button" class="topcoat-button--large">Access Camera</button>
+			<section id="camera">
+				<video id="video" width="400" height="300" autoplay></video>
+				<div id="canvas-box"><canvas id="canvas" width="400" height="300"></canvas></div>
+				<button class="topcoat-button--large" id="snap">Take Photo</button>
+			</section>
+
+			<button id="media-library-button" class="topcoat-button--large">View Media Library</button>
+			<section id="image-area"></section>
+
+		</main>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYRCxcC-7yAYAb2qzEUJOcWxEpb8rlo4I&sensor=false"></script>
+		<script src="js/app.js"></script>
+		<script src="js/fastclick.js"></script>
+		<script>
+			$(function() {
+			    FastClick.attach(document.body);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+{
+
+	"contacts": [
+
+		{	"first":"B", 	"last":"Smith", 	"phone":"+6123456789",	"email":"b.smith@example.com", 		"avatar":"img/avatars/avatar-1.png"	},
+		{	"first":"D", 	"last":"Johnson", 	"phone":"+6176543210",	"email":"d.johnson@example.com", 	"avatar":"img/avatars/avatar-2.png"	},
+		{	"first":"M", 	"last":"Perez", 	"phone":"+6178965410",	"email":"m.perez@example.com", 		"avatar":"img/avatars/avatar-3.png"	},
+		{	"first":"T",  	"last":"Clark", 	"phone":"+6178967800",	"email":"t.clark@example.com", 		"avatar":"img/avatars/avatar-4.png"	},
+		{	"first":"K", 	"last":"Robbins", 	"phone":"+6419711075",	"email":"k.robbins@example.com", 	"avatar":"img/avatars/avatar-5.png"	},
+		{	"first":"W", 	"last":"Bloggs", 	"phone":"+6582719935",	"email":"w.bloggs@example.com", 	"avatar":"img/avatars/avatar-6.png"	},
+		{	"first":"M", 	"last":"Hobbs", 	"phone":"+6100192364",	"email":"m.hobbs@example.com", 		"avatar":"img/avatars/avatar-7.png"	},
+		{	"first":"L", 	"last":"Dean", 		"phone":"+6189774211",	"email":"l.dean@example.com", 		"avatar":"img/avatars/avatar-8.png"	}
+
+	]
+
+}
