@@ -13,7 +13,7 @@ function getCrypto() {
       title.innerHTML = Result[0].name;
       subTitle.innerHTML = Result[0].symbol;
       price.innerHTML = Result[0].price_usd;
-      console.log(Result[0].id);
+      // console.log(Result[0].id);
     });
 }
 
