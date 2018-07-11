@@ -1,0 +1,40 @@
+
+/*.flex-container {
+	justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 100%
+	height: 100%;
+
+}
+
+.item-container{
+	margin: 10px 30px 40px 30px;
+	background-color: #000000;
+	height: 100px;
+	width: 100px;	
+}
+
+@media (min-width: 48em){
+	.flex-container {
+	    max-width: 46rem;
+	}	
+}*/
+
+
+.container{
+	margin: 0 auto;
+	width: 400px;
+}
+
+.box{
+	width: 100px;
+	height: 100px;
+	background-color: #000000
+}
+

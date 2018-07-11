@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const subTitle = document.querySelector('.cryptoSubTitle');
   const price = document.querySelector('.cryptoPrice');
   
+  let cryptoInfo = [];
+  
   function getCrypto() {
     fetch('https://api.coinmarketcap.com/v1/ticker/')
       .then(function(Results) {
@@ -13,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(Results);
         let card = doucment.querySelector('.card');
           Results.forEach(item => {
-            card.push
-          });
+            cryptoInfo.push
+          });``
           ranking.innerHTML = Result.rank;
           title.innerHTML = Result.name;
           subTitle.innerHTML = Result.symbol;
@@ -24,3 +26,36 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
