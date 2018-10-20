@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MVP Prototype</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+</head>
+<body>
+
+  <div>
+    <button class="camera-button btn btn-primary">Access Camera</button>
+    <section class="camera">
+      <video class="video" width="400" height="300" autoplay></video>
+      <div class="canvas-box"><canvas class="canvas" width="400" height="300"></canvas></div>
+      <button class="snap btn btn-primary">Take Photo</button>
+      
+      <button class="submitPicture btn btn-success">Submit Picture</button>
+    </section>
+    <h2>Results!</h2>
+      <ul class="itemListContainer"></ul>
+  </div>
+
+  <section id="image-area"></section>
+  
+  <script src="scripts.js"></script>
+</body>
+</html>
