@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 	document.querySelector('.active').style.display = 'block';
 
-	nextSlide.addEventListener('click', nextSlide());
+	nextSlide.addEventListener('click', goToNextSlide());
 
 	// previousSlide.addEventListener('click', previousSlide());
 	
@@ -22,9 +22,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		setInterval (nextSlide, autoSwitchSpeed);
 	}
 
-	function nextSlide()
+	function goToNextSlide()
 	{
-		document.querySelector('.active').classList.remove('active').classList.add('oldActive');
+		currentActiveSlide = document.querySelector('.active');
+		currentActiveSlide.classList.remove('active')
 
 		let oldActiveElement = document.querySelector('.oldActive');
 
