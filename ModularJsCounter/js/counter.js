@@ -8,5 +8,5 @@ incrementState.addEventListener('click', (e) => {
 });
 
 decrementState.addEventListener('click', (e) => {
-  counterApi.document;
+  counterApi.decrement();
 })
