@@ -18,7 +18,7 @@ input {
     margin:50px auto;
 }
 
-.search {
+.search:focus {
     margin: 0;
     text-align: center;
     outline:0;
