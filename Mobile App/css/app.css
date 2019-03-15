@@ -15,7 +15,7 @@ a{
 }
 button
 {
-	cursor: pointer !important; 
+	cursor: pointer; 
 	width:100%;
 }
 /** Contacts Styles **/
@@ -24,7 +24,7 @@ button
 	display: none; 
 	text-align:center;
 }
-#contacts ul li img.avatar
+#contacts ul li .avatar
 {
 	width: 80px; 
 	padding: 8px;
@@ -34,7 +34,7 @@ button
 	font-weight: bolder; 
 	font-size: 1.35rem;
 }
-#contacts ul li img.contact
+#contacts ul li .contact
 {
 	width: 36px; 
 	padding: 8px;
@@ -67,8 +67,8 @@ button
 }
 #video, #canvas, #canvas-box, .photo
 {
-	width: 100% !important; 
-	max-width: 400px !important;
+	width: 100%; 
+	max-width: 400px;
 }
 .error-msg
 {
