@@ -1,4 +1,8 @@
-function submitAnswers(){
+const submitButton = document.querySelector('.submitButton');
+
+submitButton.addEventListener('click', (e) => {
+	e.preventDefault();
+	
 	var total = 5;
 	var score = 0;
 	
@@ -33,4 +37,4 @@ function submitAnswers(){
 	alert('You scored '+ score +' out of ' + total);
 	
 	return false;
-}
+})
