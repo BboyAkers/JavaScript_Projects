@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function() {
         return Results.json();
       }).then(function(Results) {
         console.log(Results);
-        let card = doucment.querySelector('.card');
+        // let card = doucment.querySelector('.card');
           Results.forEach(item => {
-            cryptoInfo.push
+            cryptoInfo.push(item);
           });``
           ranking.innerHTML = Result.rank;
           title.innerHTML = Result.name;
@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function() {
         // console.log(Result[0].id);
       });
   }
+  getCrypto();
 });
+
 
 
 
