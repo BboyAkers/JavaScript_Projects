@@ -59,8 +59,6 @@ $(document).ready(function(){
 					center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
 				};
 
-				var map = new google.maps.Map(document.getElementById("map"), options);
-
 			});
 
 			window.setTimeout(function(){
@@ -126,7 +124,7 @@ $(document).ready(function(){
 
 				}, 
 
-				function(e){
+				function(){
 
 					if($("#gum-error").length != 0){
 
