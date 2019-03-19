@@ -29,7 +29,7 @@ button
 	width: 80px; 
 	padding: 8px;
 }
-#contacts ul li div.name
+#contacts ul li .name
 {
 	font-weight: bolder; 
 	font-size: 1.35rem;
