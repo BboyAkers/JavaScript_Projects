@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       video.src = window.URL.createObjectURL(stream);
     })
     .catch((err) => {
-      // console.log('You are blocked homie');
+      console.error('You are blocked homie', err);
     });
   });
 
@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     base64 = canvas.toDataURL();
     base64 = base64.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
-    // console.log(base64);
     return base64;
   });
 
@@ -57,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return response.json();
     })
     .then((myJson) => {
-      // console.log(JSON.stringify(myJson));
       let items = myJson.responses[0].webDetection.webEntities;
       let itemList = '';
       items.forEach(item => {
