@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
 	const slides = document.querySelectorAll('.slide');
 	const nextSlide = document.querySelector('#next');
-	const previousSlide = document.querySelector('#prev');
+	// const previousSlide = document.querySelector('#prev');
 
-	let speed = 500;
+	// let speed = 500;
 	let autoSwitch = true;
 	let autoSwitchSpeed = 400;
 
