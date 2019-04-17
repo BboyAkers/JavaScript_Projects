@@ -1,6 +1,5 @@
 
 const searchUser = document.querySelector('.searchUser');
-const userCardInfo = document.querySelector('.userInfoCard');
 
 searchUser.addEventListener('click', (e) =>{
     e.preventDefault();
