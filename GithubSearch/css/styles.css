@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+/* Card */
+
+.userInfoCard {
+    width: 300;
+}
