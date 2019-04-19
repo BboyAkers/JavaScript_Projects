@@ -1,10 +1,41 @@
-.container{
+body {
+    background-color: #65737e
+}
+.container {
     display: flex;
     justify-content: center;
     flex-direction: row;
 }
+
+.usernameInput {
+    width: 400px;
+    height: 40px;
+    border-radius: 35px;
+    padding: 20px;
+    font-size: 1.25em;
+    border: 2px solid #343d46
+
+}
+
 /* Card */
 
 .userInfoCard {
-    width: 300;
+    width: 300px;
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    margin: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.cardBody{
+    padding: 20px;
+}
+
+.cardBody>h2,h4 {
+    text-align: center;
+}
+
+.cardItemInfo {
+    display: inline-block;
 }
