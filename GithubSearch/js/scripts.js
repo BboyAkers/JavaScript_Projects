@@ -13,22 +13,24 @@ searchUser.addEventListener('click', (e) =>{
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             const response = JSON.parse(this.response);
             userCardInfo.innerHTML = `
-                <div class="">
+                <div>
                     <img src='${response.avatar_url}' height="300"/>
                 </div>
                 <div class="cardBody">
-                    <h2>${response.name}</h2>
-                    <h4>${response.login}</h4>
+                    <h1>${response.name}</h1>
+                    <h2>${response.login}</h2>
                     <p>${response.bio}</p>
-                    <div class="cardItemInfo">
-                        <h5>Public Repos</h5>
-                        <p>${response.public_repos}</p>
+                    <div class="cardRow itemsSpaceBetween">
+                        <div class="cardItemInfo">
+                            <h4>Public Repos</h4>
+                            <p>${response.public_repos}</p>
+                        </div>
+                        <div class="cardItemInfo">
+                            <h4>Followers</h4>
+                            <p>${response.followers}</p>
+                        </div>
                     </div>
-                    <div class="cardItemInfo">
-                        <h5>Followers</h5>
-                        <p>${response.followers}</p>
-                    </div>
-                    <a target="_blank" href="${response.html_url}">Vist Profile</a>
+                    <a target="_blank" href="${response.html_url}" class="btn btnBlue">Visit Profile</a>
                 </div>
             `
             

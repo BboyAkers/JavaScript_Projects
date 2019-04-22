@@ -32,10 +32,39 @@ body {
     padding: 20px;
 }
 
-.cardBody>h2,h4 {
+.cardBody>h1,h2,h3,h4 {
     text-align: center;
 }
 
 .cardItemInfo {
     display: inline-block;
+}
+
+.cardRow {
+    display: flex;
+}
+.itemsSpaceBetween{
+    justify-content: space-between;
+}
+
+.btn {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2em;
+    text-align: center;
+    display: block;
+    padding: .5em;
+    border-radius: 5px;
+}
+
+.btnBlue {
+    background-color: #6495ed;
+}
+
+.btnGrey {
+    background-color: #343d46;
+}
+
+.searchBtn {
+    border: none;
 }
