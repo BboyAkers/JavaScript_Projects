@@ -3,7 +3,7 @@ const searchUser = document.querySelector('.searchUser');
 const userCardInfo = document.querySelector('.userInfoCard');
 
 searchUser.addEventListener('click', (e) =>{
-    e.preventDefault();
+    // e.preventDefault();
     
     let usernameInputValue = document.querySelector('.usernameInput').value;
     const xhrRequest = new XMLHttpRequest();
