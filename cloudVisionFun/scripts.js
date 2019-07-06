@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const video = document.querySelector('.video');
   const canvas = document.querySelector('.canvas');
-  const cameraButton = document.querySelector('.camera-button');
   const snapPicture = document.querySelector('.snap');
   const submitPicture = document.querySelector('.submitPicture');
   const itemListContainer = document.querySelector('.itemListContainer');
@@ -11,14 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let context = canvas.getContext("2d");
   let base64;
   
-  cameraButton.addEventListener('click', () => {
-    navigator.mediaDevices.getUserMedia({video: true})
-    .then((stream) => {
-      video.src = window.URL.createObjectURL(stream);
-    })
-    .catch((err) => {
-      console.error('You are blocked homie', err);
-    });
+  window.addEventListener('DOMContentLoaded', () => {
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+      });
+    }
   });
 
   snapPicture.addEventListener('click', () => {
