@@ -1,0 +1,31 @@
+:root {
+  --white: #ffffff;
+  --light-grey: #d6e2f0;
+  --grayish-blue: #7b879d;
+  --dark-blue: #1f3251;
+}
+
+body {
+  background-color: var(--light-grey);
+}
+.card {
+  background-color: var(--white);
+  width: 320px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 5px 5px var(--grayish-blue);
+}
+
+.card-image {
+  width: inherit;
+}
+
+.card-title {
+  color: var(--dark-blue);
+}
+
+.card-text {
+  color: var(--grayish-blue);
+}
