@@ -9,11 +9,18 @@ body {
   background-color: var(--light-grey);
 }
 
+.main {
+  align-items: center;
+  height: 100vh;
+  display: flex;
+}
+
 .card {
   background-color: var(--white);
   text-align: center;
   box-shadow: 5px 5px var(--grayish-blue);
   border-radius: 10px;
+  align-items: center;
   width: 320px;
   margin: 0 auto;
   padding: 1em;
