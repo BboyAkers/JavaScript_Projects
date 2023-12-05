@@ -7,12 +7,14 @@
 
 body {
   background-color: var(--light-grey);
+  font-family: "Outfit", sans-serif;
 }
 .main {
   height: 100vh;
   display: flex;
   align-items: center;
 }
+
 .card {
   background-color: var(--white);
   width: 320px;
@@ -21,17 +23,22 @@ body {
   align-items: center;
   padding: 1em;
   border-radius: 10px;
-  box-shadow: 5px 5px var(--grayish-blue);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .card-image {
+  border-radius: 10px;
   width: inherit;
 }
 
-.card-title {
+.card-body {
+  padding: 0 1em;
+}
+
+.card-body > h2 {
   color: var(--dark-blue);
 }
 
-.card-text {
+.card-body > p {
   color: var(--grayish-blue);
 }
