@@ -24,7 +24,11 @@
             <img src="./src/assets/icon-search.svg" alt="Search Icon" srcset="">
           </div>
           <input type="search" name="username" required placeholder="Search Github username..."
-            class="w-full pl-8 text-sm" />
+            class="w-full pl-12 text-sm" />
+          <span id="errorMessage"
+            class="inset-y-0 flex items-center hidden text-center text-red-600 pointer-events-none md:absolute md:text-left md:pr-3 md:right-24">
+            No Results
+          </span>
           <input type="submit" value="Search" class="px-3 text-white bg-blue-500 rounded-xl" />
         </form>
       </header>
