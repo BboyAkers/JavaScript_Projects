@@ -20,6 +20,10 @@ const githubUserCard = document.querySelector('#githubUserCard') as HTMLDivEleme
 
 const renderTemplate = (data: GithubUser) => {
   const { login, avatar_url, name, bio, created_at, public_repos, followers, following, location, blog, twitter_username, company, html_url } = data;
+  const accountCreationDate = new Date(created_at)
+  const options = {
+    
+  };
   const html = `
     <div>
       <div class="grid grid-cols-8 md:grid-cols-12">
@@ -28,7 +32,7 @@ const renderTemplate = (data: GithubUser) => {
         <div class="flex flex-col justify-center inline-block col-span-5 ml-4 md:col-span-9">
           <h2 class="font-semibold md:text-2xl">${name}</h2>
           <a href=${html_url} target="_blank" class="text-blue-500">@${login}</a>
-          <p class="text-sm">${created_at}</p>
+          <p class="text-sm">${accountCreationDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric'})}</p>
         </div>
       </div>
       <p class="inline-block mt-8 text-sm">${bio}</p>
@@ -87,7 +91,7 @@ const getGithubUserInfo = async () => {
   }
 }
 
-const form = document.querySelector("#githubUsername");
+const form = document.querySelector("#githubUsername")! as HTMLFormElement;
 form!.addEventListener('submit', (event) => {
   event.preventDefault();
   getGithubUserInfo();
