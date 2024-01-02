@@ -20,10 +20,8 @@ const githubUserCard = document.querySelector('#githubUserCard') as HTMLDivEleme
 
 const renderTemplate = (data: GithubUser) => {
   const { login, avatar_url, name, bio, created_at, public_repos, followers, following, location, blog, twitter_username, company, html_url } = data;
-  const accountCreationDate = new Date(created_at)
-  const options = {
-    
-  };
+  const accountCreationDate = new Date(created_at);
+  
   const html = `
     <div>
       <div class="grid grid-cols-8 md:grid-cols-12">
