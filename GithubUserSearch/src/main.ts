@@ -26,6 +26,7 @@ const themeToggleButton = document.querySelector('#themeToggleButton') as HTMLBu
 themeToggleButton.addEventListener('click', () => {
   document.body.classList.toggle('dark');
   themeToggleButton.childNodes[1].textContent = document.body.classList.contains('dark') ? 'Light' : 'Dark';
+  // @ts-ignore
   themeToggleButton.childNodes[3].src = document.body.classList.contains('dark') ? 'https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/65039011-9dbc-407d-b804-43fdceffa800/public' : 'https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/d2b6ea90-c9cc-492d-108a-7c97152d7100/public';
   themeToggleButton.classList.toggle('text-white');
 })
