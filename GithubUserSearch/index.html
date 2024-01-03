@@ -14,17 +14,28 @@
 </head>
 
 <body>
-  <main class="flex items-center justify-center h-screen p-6 bg-[#F6F8FF]">
+  <main class="flex items-center justify-center h-screen p-6 bg-white-dark dark:bg-navyBlue">
     <div class="w-[40rem]">
       <header>
-        <h1 class="mb-4 font-semibold md:text-2xl">devfinder</h1>
+        <div class="flex justify-between">
+          <h1 class="mb-4 font-semibold md:text-2xl text-gray-dark dark:text-white-light">devfinder</h1>
+          <div>
+            <button type="button" id="themeToggleButton" class="text-gray dark:text-white-light">
+              <span>Dark</span>
+              <img id="themeIcon" class="inline ml-2"
+                src="https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/d2b6ea90-c9cc-492d-108a-7c97152d7100/public"
+                alt="Theme Icon" />
+            </button>
+          </div>
+        </div>
         <form id="githubUsername"
-          class="relative flex justify-between w-full max-w-3xl p-2 bg-white shadow-lg h-14 rounded-2xl" method="get">
+          class="relative flex justify-between w-full max-w-3xl p-2 bg-white shadow-lg dark:bg-blue-dark h-14 rounded-2xl"
+          method="get">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <img src="./src/assets/icon-search.svg" alt="Search Icon" srcset="">
           </div>
-          <input type="search" name="username" required placeholder="Search Github username..."
-            class="w-full pl-12 text-sm" />
+          <input type="search" name="username" autofocus required placeholder="Search Github username..."
+            class="w-full pl-12 text-sm bg-white text-gray-dark dark:text-white-light dark:bg-blue-dark placeholder:text-blue dark:placeholder:text-white-light" />
           <span id="errorMessage"
             class="inset-y-0 flex items-center hidden text-center text-red-600 pointer-events-none md:absolute md:text-left md:pr-3 md:right-24">
             No Results
@@ -33,9 +44,15 @@
         </form>
       </header>
       <section>
-        <div id="githubUserCard" class="max-w-3xl bg-white max-h-[600px] rounded-2xl mt-8 p-8 shadow-lg">
-          Please enter a username to search on Github.
-        </div>
+        <div id="githubUserCard"
+          class="max-w-3xl bg-white dark:bg-blue-dark text-blue dark:text-white-light max-h-[600px] rounded-2xl mt-8 p-8 shadow-lg">
+          <div>
+            <div id="loading" class="flex items-center justify-center hidden">
+              <div class="text-2xl border-blue-500 rounded-full animate-spin">😎</div>
+              <p class="ml-2">Loading...</p>
+            </div>
+            <p id="initialMessage">Please enter a username to search on Github.</p>
+          </div>
       </section>
     </div>
   </main>

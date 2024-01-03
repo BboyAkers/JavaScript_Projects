@@ -1,3 +1,4 @@
+import DOMPurify from 'dompurify';
 import './style.css'
 
 interface GithubUser {
@@ -18,6 +19,16 @@ interface GithubUser {
 
 const githubUserCard = document.querySelector('#githubUserCard') as HTMLDivElement;
 const errorMessage = document.querySelector('#errorMessage') as HTMLDivElement;
+const loading = document.querySelector('#loading') as HTMLDivElement;
+const initialMessage = document.querySelector('#initialMessage') as HTMLDivElement;
+const themeToggleButton = document.querySelector('#themeToggleButton') as HTMLButtonElement;
+
+themeToggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  themeToggleButton.childNodes[1].textContent = document.body.classList.contains('dark') ? 'Light' : 'Dark';
+  themeToggleButton.childNodes[3].src = document.body.classList.contains('dark') ? 'https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/65039011-9dbc-407d-b804-43fdceffa800/public' : 'https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/d2b6ea90-c9cc-492d-108a-7c97152d7100/public';
+  themeToggleButton.classList.toggle('text-white');
+})
 
 const renderTemplate = (data: GithubUser) => {
   const { login, avatar_url, name, bio, created_at, public_repos, followers, following, location, blog, twitter_username, company, html_url } = data;
@@ -26,48 +37,53 @@ const renderTemplate = (data: GithubUser) => {
   const html = `
     <div>
       <div class="grid grid-cols-8 md:grid-cols-12">
-        <img class="col-span-3 md:col-span-3 rounded-full inline max-h-[150px]" src=${avatar_url}
+        <img class="col-span-3 md:col-span-3 rounded-full inline max-h-[100px] md:max-h-[150px]" src=${avatar_url}
           alt="Github profile picture" />
-        <div class="flex flex-col justify-center inline-block col-span-5 ml-4 md:col-span-9">
+        <div class="flex flex-col justify-center col-span-5 ml-2 md:ml-8 md:col-span-9">
           <h2 class="font-semibold md:text-2xl">${name}</h2>
           <a href=${html_url} target="_blank" class="text-blue-500">@${login}</a>
           <p class="text-sm">Joined ${accountCreationDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric'})}</p>
         </div>
       </div>
       <p class="inline-block mt-8 text-sm">${bio}</p>
-      <div class="grid grid-cols-3 p-4 my-6 text-center bg-slate-300 rounded-xl">
+      <div class="grid grid-cols-3 px-2 py-4 my-6 text-center bg-[#F6F8FF] rounded-xl">
         <div>
-          <p class="text-sm">Repos</p>
+          <p class="text-sm text-[#4B6A9B]">Repos</p>
           <p class="font-bold">${public_repos}</p>
         </div>
         <div>
-          <p class="text-sm">Followers</p>
+          <p class="text-sm text-[#4B6A9B]">Followers</p>
           <p class="font-bold">${followers}</p>
         </div>
         <div>
-          <p class="text-sm">Following</p>
+          <p class="text-sm text-[#4B6A9B]">Following</p>
           <p class="font-bold">${following}</p>
         </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2">
-        <p class="mt-3">
-          <img src="https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/93c14a4f-2304-41d5-5c82-f1106df08600/public" alt="Location point icon" class="inline-block mr-5" />${location ? location : 'Not Available'}
-        </p>
-        <a href=${blog} target="_blank" class="mt-3">
-          <img src="https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/e7153a57-56da-45d3-3f00-5cfc2a1fdd00/public" alt="Link Icon for website" class="inline-block mr-4" />${blog ? blog : 'Not Available'}
-        </a>
-        <p class="mt-3">
-          <img src="https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/1455261b-d72c-4bb1-2389-401536ac8d00/public" alt="Twitter/x.com icon"
-            class="inline-block mr-4" />${twitter_username ? twitter_username : 'Not Available'}
-        </p>
-        <p class="mt-3">
-          <img src="https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/aee7aad6-5a36-44a0-72b1-e79666c90700/public" alt="Building icon for company"
-            class="inline-block mr-4" />${company ? company : 'Not Available'}
-        </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 text-sm">
+        <div>
+          <p class="mt-3">
+            <img src="https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/93c14a4f-2304-41d5-5c82-f1106df08600/public" alt="Location point icon" class="inline-block mr-5" />${location ? location : 'Not Available'}
+          </p>
+          <a href=${blog} target="_blank" class="mt-3 block">
+            <img src="https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/e7153a57-56da-45d3-3f00-5cfc2a1fdd00/public" alt="Link Icon for website" class="inline-block mr-4" />${blog ? blog : 'Not Available'}
+          </a>
+        </div>
+        <div>
+          <p class="mt-3">
+            <img src="https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/1455261b-d72c-4bb1-2389-401536ac8d00/public" alt="Twitter/x.com icon"
+              class="inline-block mr-4" />${twitter_username ? twitter_username : 'Not Available'}
+          </p>
+          <p class="mt-3">
+            <img src="https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/aee7aad6-5a36-44a0-72b1-e79666c90700/public" alt="Building icon for company"
+              class="inline-block mr-4" />${company ? company : 'Not Available'}
+          </p>
+        </div>
       </div>
     </div>
   `;
-  githubUserCard.innerHTML = html;
+  const cleanHTML = DOMPurify.sanitize(html);
+  githubUserCard.innerHTML = cleanHTML;
 }
 
 const getGithubUserInfo = async () => {
@@ -75,6 +91,8 @@ const getGithubUserInfo = async () => {
   const username = formData.get('username');
   
   errorMessage.classList.add('hidden');
+  loading.classList.remove('hidden');
+  initialMessage.classList.add('hidden');
   
   if(!username){
     return;
@@ -83,13 +101,15 @@ const getGithubUserInfo = async () => {
     const response = await fetch(`https://api.github.com/users/${username}`);
     if(response.ok){
       const data = await response.json();
-      return renderTemplate(data);
+      renderTemplate(data);
+      loading.classList.add('hidden');
+      return;
     }
+    loading.classList.add('hidden');
     errorMessage.classList.remove('hidden');
-    
   }
   catch(err) {
-    errorMessage.classList.remove('hidden');
+    loading.classList.add('hidden');
     console.error('Error:', err)
   }
 }
