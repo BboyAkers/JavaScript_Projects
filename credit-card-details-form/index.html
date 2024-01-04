@@ -5,14 +5,47 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="./images/favicon-32x32.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
   <title>Interactive Credit Card</title>
 </head>
 
 <body>
   <main>
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div class="bg-main-mobile h-60">
+      <img src="./images/bg-card-front.png" alt="credit card front" />
+    </div>
+    <div class="p-6">
+      <form class="uppercase flex flex-col tracking-widest">
+        <div class="pb-4">
+          <label for="card-holder" class="block text-xs pb-1">Cardholder Name</label>
+          <input type="text" id="card-holder" class="rounded-md border-gray-200 border py-2 px-4 text-lg"
+            placeholder="e.g. Jane Appleseed" />
+        </div>
+        <div class="pb-4">
+          <label for="card-number" class="block text-xs pb-1">Card Number</label>
+          <input type="number" class="rounded-md border-gray-200 border py-2 px-4 text-lg"
+            placeholder="e.g. 1234 5678 9123 0000" />
+        </div>
+        <div class="flex pb-4">
+          <div class="flex-1">
+            <label for="card-expiration-month" class="block text-xs pb-1">Exp. Date (MM/YY)</label>
+            <input type="text" id="card-expiration-month"
+              class="inline-block w-[72px] rounded-md border-gray-200 border py-2 px-4 text-lg" placeholder="MM" />
+            <input type="text" id="card-expiration-year"
+              class="inline-block w-[72px] rounded-md border-gray-200 border py-2 px-4 text-lg" placeholder="YY" />
+          </div>
+          <div class="flex-1">
+            <label for="card-cvv" class="block text-xs pb-1">CVV</label>
+            <input type="text" id="card-cvv" class="rounded-md border-gray-200 border py-2 px-4 text-lg w-40"
+              placeholder="e.g. 123" />
+          </div>
+        </div>
+        <button type="submit"
+          class="rounded-md border-purple-950 bg-purple-950 py-4 text-white text-lg mt-4">Confirm</button>
+      </form>
+    </div>
   </main>
   <script type="module" src="/src/main.ts"></script>
 </body>
