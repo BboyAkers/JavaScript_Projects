@@ -14,8 +14,14 @@
 <body>
   <main>
     <div class="relative bg-main-mobile h-60">
+      <p class="absolute z-20 text-[9px] tracking-widest text-white top-[105px] left-36">CVV</p>
+      <p class="absolute z-20 text-lg tracking-widest text-white bottom-3 left-10">0000 0000 0000 0000</p>
+      <p class="absolute z-20 text-[9px] text-white uppercase -bottom-3 left-10">JANE APPLESEED</p>
+      <p class="absolute z-20 text-[9px] text-white uppercase -bottom-3 right-28">
+        <span id="month">00</span>/<span id="year">00</span>
+      </p>
       <img src="./images/bg-card-back.png" alt="credit card front" class="absolute z-0 left-14 top-8 w-72" />
-      <img src="./images/bg-card-front.png" alt="credit card front" class="absolute z-50 left-4 -bottom-10 w-72" />
+      <img src="./images/bg-card-front.png" alt="credit card front" class="absolute z-10 left-4 -bottom-10 w-72" />
     </div>
     <div class="px-6 py-20">
       <form class="flex flex-col tracking-widest uppercase">
@@ -44,7 +50,7 @@
           </div>
         </div>
         <button type="submit"
-          class="py-4 mt-4 text-lg text-white rounded-md border-purple-950 bg-purple-950">Confirm</button>
+          class="py-4 mt-4 text-lg text-white rounded-md border-purple-950 bg-purple-950 max-w-96">Confirm</button>
       </form>
     </div>
   </main>
