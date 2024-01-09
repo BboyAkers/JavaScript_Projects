@@ -14,39 +14,48 @@
 <body>
   <main>
     <div class="relative bg-main-mobile h-60">
-      <p class="absolute z-20 text-[9px] tracking-widest text-white top-[105px] left-36">CVV</p>
-      <p class="absolute z-20 text-lg tracking-widest text-white bottom-3 left-10">0000 0000 0000 0000</p>
-      <p class="absolute z-20 text-[9px] text-white uppercase -bottom-3 left-10">JANE APPLESEED</p>
-      <p class="absolute z-20 text-[9px] text-white uppercase -bottom-3 right-28">
-        <span id="month">00</span>/<span id="year">00</span>
-      </p>
-      <img src="./images/bg-card-back.png" alt="credit card front" class="absolute z-0 left-14 top-8 w-72" />
-      <img src="./images/bg-card-front.png" alt="credit card front" class="absolute z-10 left-4 -bottom-10 w-72" />
+      <div>
+        <p id="card-cvv-display" class="absolute z-20 text-[9px] tracking-widest text-white top-[105px] right-20">
+          CVV
+        </p>
+        <img src="./images/bg-card-back.png" alt="credit card front" class="absolute z-0 left-14 top-8 w-72" />
+      </div>
+      <div>
+        <p id="card-number-display" class="absolute z-20 text-lg tracking-widest text-white bottom-3 left-10">
+          0000 0000 0000 0000
+        </p>
+        <p id="card-holder-display" class="absolute z-20 text-[9px] text-white uppercase -bottom-3 left-10">JANE
+          APPLESEED</p>
+        <p class="absolute z-20 text-[9px] text-white uppercase -bottom-3 right-28">
+          <span id="card-month-display">00</span>/<span id="card-year-display">00</span>
+        </p>
+        <img src="./images/bg-card-front.png" alt="credit card front" class="absolute z-10 left-4 -bottom-10 w-72" />
+      </div>
     </div>
     <div class="px-6 py-20">
       <form class="flex flex-col tracking-widest uppercase">
         <div class="pb-4">
           <label for="card-holder" class="block pb-1 text-xs">Cardholder Name</label>
-          <input type="text" id="card-holder" class="px-4 py-2 text-lg border border-gray-200 rounded-md"
-            placeholder="e.g. Jane Appleseed" />
+          <input id="card-holder" type="text" name="card-holder" minlength="1" maxlength="30" required
+            class="px-4 py-2 text-lg border border-gray-200 rounded-md" placeholder="e.g. Jane Appleseed" />
         </div>
         <div class="pb-4">
           <label for="card-number" class="block pb-1 text-xs">Card Number</label>
-          <input type="number" class="px-4 py-2 text-lg border border-gray-200 rounded-md"
-            placeholder="e.g. 1234 5678 9123 0000" />
+          <input id="card-number" maxlength="19" required type="text" name="card-number"
+            class="px-4 py-2 text-lg border border-gray-200 rounded-md" placeholder="e.g. 1234 5678 9123 0000" />
         </div>
         <div class="flex pb-4">
           <div class="flex-1">
             <label for="card-expiration-month" class="block pb-1 text-xs">Exp. Date (MM/YY)</label>
-            <input type="text" id="card-expiration-month"
+            <input type="text" id="card-expiration-month" required maxlength="2"
               class="inline-block w-[72px] rounded-md border-gray-200 border py-2 px-4 text-lg" placeholder="MM" />
-            <input type="text" id="card-expiration-year"
+            <input type="text" id="card-expiration-year" required maxlength="2"
               class="inline-block w-[72px] rounded-md border-gray-200 border py-2 px-4 text-lg" placeholder="YY" />
           </div>
           <div class="flex-1">
             <label for="card-cvv" class="block pb-1 text-xs">CVV</label>
-            <input type="text" id="card-cvv" class="w-40 px-4 py-2 text-lg border border-gray-200 rounded-md"
-              placeholder="e.g. 123" />
+            <input type="text" id="card-cvv" required maxlength="3"
+              class="w-40 px-4 py-2 text-lg border border-gray-200 rounded-md" placeholder="e.g. 123" />
           </div>
         </div>
         <button type="submit"
