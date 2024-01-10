@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (input.id === 'card-number') {
         input.value = formatCreditCardNumber(input.value);
       }
+      if(input.value.length > 0 ){
         display.innerHTML = input.value;
+      }
     });
   }
 
