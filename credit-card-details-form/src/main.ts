@@ -33,9 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (parts.length) {
         return parts.join(' ');
-    } else {
-        return value;
     }
+    return value;
   };
 
   reactiveInputToDisplay(cardNumber, cardNumberDisplay);
