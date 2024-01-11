@@ -12,66 +12,71 @@
 </head>
 
 <body>
-  <main class="grid h-screen grid-cols-1 md:grid-cols-3">
-    <div class="relative col-span-1 bg-no-repeat bg-cover md:col-span-1 bg-main-mobile h-60 md:h-full">
+  <main class="grid h-screen grid-cols-1 lg:grid-cols-3">
+    <div
+      class="relative col-span-1 bg-no-repeat bg-cover lg:col-span-1 bg-main-mobile lg:bg-main-desktop h-60 lg:h-full">
       <div
-        class="absolute w-[343px] h-[251px] md:w-[541px] md:h-[527px] max-md:-bottom-14 left-[50%] translate-x-[-50%]">
+        class="absolute w-[343px] h-[251px] lg:w-[475px] lg:h-[475px] max-lg:-bottom-14 max-lg:left-[50%] max-lg:translate-x-[-50%] lg:translate-y-[-50%] lg:top-[50%] xl:left-[33%]">
         <!-- back of card -->
         <div
-          class="absolute bg-card-back z-0 bg-no-repeat bg-cover max-md:top-0 right-0 md:bottom-0  w-72 md:w-[447px] aspect-[285/156]">
+          class="absolute bg-card-back z-0 bg-no-repeat bg-cover max-lg:top-0 right-0 lg:bottom-0  w-72 lg:w-[400px] aspect-[285/156]">
           <span id="card-cvv-display"
-            class="absolute z-20 text-[9px] tracking-widest text-white top-[4.5rem] md:top-[7rem] right-10 md:right-16">
-            CVV
+            class="absolute z-20 text-[9px] lg:text-base tracking-widest text-white top-[4.5rem] lg:top-24 right-10 lg:right-14">
+            000
           </span>
         </div>
         <!-- /back of card -->
 
         <!-- front of card -->
         <div
-          class="absolute bg-card-front z-10 md:top-0 left-0 max-md:bottom-0 w-72 bg-no-repeat bg-cover md:w-[447px] aspect-[285/156]">
-          <span id="card-number-display" class="absolute z-20 text-lg tracking-widest text-white left-8 top-16">
+          class="absolute bg-card-front z-10 lg:top-0 left-0 max-lg:bottom-0 w-72 bg-no-repeat bg-cover lg:w-[400px] aspect-[285/156]">
+          <span id="card-type-display" class="absolute z-20 h-8 text-white uppercase top-4 left-8"></span>
+          <span id="card-number-display"
+            class="absolute z-20 text-lg tracking-widest text-white lg:text-2xl left-8 top-16 lg:left-10 lg:top-24">
             0000 0000 0000 0000
           </span>
-          <span id="card-holder-display" class="absolute z-20 text-[9px] text-white uppercase bottom-6 left-10">JANE
+          <span id="card-holder-display"
+            class="absolute z-20 text-[9px] text-white uppercase bottom-6 left-8 lg:left-10 lg:bottom-10 md:text-sm">JANE
             APPLESEED</span>
-          <span class="absolute z-20 text-[9px] text-white uppercase bottom-6 right-8">
+          <span
+            class="absolute z-20 text-[9px] text-white uppercase bottom-6 right-8 lg:bottom-10 lg:right-14 md:text-sm">
             <span id="card-month-display">00</span>/<span id="card-year-display">00</span>
           </span>
-          <span id="card-type-display" class="text-white uppercase"></span>
+
         </div>
         <!-- /front of card -->
       </div>
     </div>
-    <section class="col-span-1 md:col-span-2">
+    <section class="flex items-center justify-center col-span-1 lg:col-span-2">
       <div class="px-6 py-20 mx-auto max-w-96">
-        <form class="flex flex-col tracking-widest uppercase">
+        <form id="credit-card-form" class="flex flex-col tracking-widest uppercase">
           <div class="pb-4">
             <label for="card-holder" class="block pb-1 text-xs">Cardholder Name</label>
             <input id="card-holder" type="text" name="card-holder" minlength="1" maxlength="30" required
-              class="w-full px-4 py-2 text-lg border border-gray-200 rounded-md" placeholder="e.g. Jane Appleseed" />
+              class="w-full px-4 py-2 text-lg border border-gray-200 rounded-lg" placeholder="e.g. Jane Appleseed" />
           </div>
           <div class="pb-4">
             <label for="card-number" class="block pb-1 text-xs">Card Number</label>
             <input id="card-number" minlength="15" maxlength="19" required type="text" name="card-number"
-              class="w-full px-4 py-2 text-lg border border-gray-200 rounded-md"
+              class="w-full px-4 py-2 text-lg border border-gray-200 rounded-lg"
               placeholder="e.g. 1234 5678 9123 0000" />
           </div>
           <div class="flex pb-4">
             <div class="w-1/2">
               <label for="card-expiration-month" class="block pb-1 text-xs">Exp. Date (MM/YY)</label>
               <input type="text" id="card-expiration-month" required maxlength="2" minlength="2"
-                class="inline-block w-[72px] rounded-md border-gray-200 border py-2 px-4 text-lg" placeholder="MM" />
+                class="inline-block w-[72px] rounded-lg border-gray-200 border py-2 px-4 text-lg" placeholder="MM" />
               <input type="text" id="card-expiration-year" required maxlength="2" minlength="2"
-                class="inline-block w-[72px] rounded-md border-gray-200 border py-2 px-4 text-lg" placeholder="YY" />
+                class="inline-block w-[72px] rounded-lg border-gray-200 border py-2 px-4 text-lg" placeholder="YY" />
             </div>
             <div class="w-1/2">
               <label for="card-cvv" class="block pb-1 text-xs">CVV</label>
               <input type="text" id="card-cvv" required maxlength="4" minlength="3"
-                class="w-full px-4 py-2 text-lg border border-gray-200 rounded-md" placeholder="e.g. 123" />
+                class="w-full px-4 py-2 text-lg border border-gray-200 rounded-lg" placeholder="e.g. 123" />
             </div>
           </div>
           <button type="submit"
-            class="py-4 mt-4 text-lg text-white rounded-md border-purple-950 bg-purple-950 max-w-96">
+            class="py-4 mt-4 text-lg text-white rounded-lg border-purple-950 bg-purple-950 max-w-96">
             Confirm
           </button>
         </form>
@@ -80,8 +85,8 @@
             class="pb-8 m-auto">
           <h1 class="text-[28px]">Thank You!</h1>
           <p class="text-lg">We&#39;ve added your card details</p>
-          <button type="button"
-            class="py-4 mt-4 text-lg text-white rounded-md border-purple-950 bg-purple-950 max-w-96">
+          <button type="button" id="continue-button"
+            class="py-4 mt-4 text-lg text-white rounded-lg border-purple-950 bg-purple-950 max-w-96">
             Continue
           </button>
         </div>
