@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+</head>
+
+<body>
+  <main
+    class="flex flex-col items-center justify-center px-4 py-10 bg-intro-mobile md:bg-intro-desktop md:h-screen bg-orange md:flex-row">
+    <section class="flex-1 text-center text-white md:text-left lg:px-28">
+      <h1 class="mb-5 text-3xl font-bold md:text-5xl">Learn to code by <span class="text-nowrap">watching others</span>
+      </h1>
+      <p class="px-2">
+        See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
+        but understanding how developers think is invaluable.
+      </p>
+    </section>
+    <section class="flex-1 mt-10">
+      <div class="px-20 py-4 mb-6 text-center text-white shadow-lg bg-purple rounded-xl">
+        <p class="font-bold">Try it free 7 days <span class="font-normal">then $20/mo. thereafter</span></p>
+      </div>
+      <div class="px-4 py-8 mb-8 bg-white rounded-xl border-gray md:px-10 max-w-[540px] w-full shadow-xl">
+        <form id="signUpForm" class="w-full">
+          <div class="relative">
+            <div id="firstNameErrorIcon" class="absolute flex items-center hidden pointer-events-none top-10 right-8">
+              <img src="/icon-error.svg" alt="error icon" srcset="">
+            </div>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name"
+              class="pl-8 pr-12 py-5 mt-5 border-[1px] border-gray rounded-md w-full placeholder:text-black font-semibold focus:border-purple">
+            <span id="firstNameError" class="hidden block mt-2 text-xs italic text-right text-orange">First Name cannot
+              be
+              empty</span>
+          </div>
+          <div class="relative">
+            <div id="lastNameErrorIcon" class="absolute flex items-center hidden pointer-events-none top-10 right-8">
+              <img src="/icon-error.svg" alt="error icon" srcset="">
+            </div>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name"
+              class="px-8 py-5 mt-5 border-[1px] border-gray rounded-md w-full placeholder:text-black font-semibold focus:border-purple">
+            <span id="lastNameError" class="hidden block mt-2 text-xs italic text-right text-orange">Last Name cannot be
+              empty</span>
+          </div>
+          <div class="relative">
+            <div id="emailErrorIcon" class="absolute flex items-center hidden pointer-events-none top-10 right-8">
+              <img src="/icon-error.svg" alt="error icon" srcset="">
+            </div>
+            <input type="email" id="email" name="email" placeholder="Email Address"
+              class="px-8 py-5 mt-5 border-[1px] border-gray rounded-md w-full placeholder:text-black font-semibold focus:border-purple">
+            <span id="emailError" class="hidden block mt-2 text-xs italic text-right text-orange">Email cannot be
+              empty</span>
+          </div>
+          <div class="relative">
+            <div id="passwordErrorIcon" class="absolute flex items-center hidden pointer-events-none top-10 right-8">
+              <img src="/icon-error.svg" alt="error icon" srcset="">
+            </div>
+            <input type="password" id="password" name="password" placeholder="Password"
+              class="px-8 py-5 mt-5 border-[1px] border-gray rounded-md w-full placeholder:text-black font-semibold focus:border-purple">
+            <span id="passwordError" class="hidden block mt-2 text-xs italic text-right text-orange">Password cannot be
+              empty</span>
+          </div>
+          <button type="submit" class="w-full px-8 py-4 mt-5 font-semibold text-white rounded-lg bg-green">CLAIM YOUR
+            FREE
+            TRIAL</button>
+        </form>
+        <p class="px-10 mt-2 text-sm text-center text-purple-light">By clicking the button, you are agreeing to our
+          <a href="#" class="font-semibold text-orange">Terms and Services</a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
