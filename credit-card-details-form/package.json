@@ -9,10 +9,14 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/payment": "^2.1.7",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
+  },
+  "dependencies": {
+    "payment": "^2.4.6"
   }
 }
