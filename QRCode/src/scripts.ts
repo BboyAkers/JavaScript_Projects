@@ -1,3 +1,3 @@
-//TODO: Integrate the npm qrcode package
+import { isNumeric } from './qrcode';
 
-//TODO: Build QRCode reader from scratch and remove npm qrcode package
+console.log(isNumeric('123feda'));
