@@ -8,7 +8,7 @@
     "build": "parcel build",
     "test": "vitest"
   },
-  "author": "",
+  "author": "BboyAkers",
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.10.3",

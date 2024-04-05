@@ -12,6 +12,18 @@ const isAlphaNumeric = (text:string) => {
   return alphaNumericCharactersRegex.test(text);
 }
 
-export { textToBinaryString, isNumeric, isAlphaNumeric };
+const isByteMode = (text: string) => {
+  // ISO-8859-1 (Western Europe) character range in Unicode
+  const ISO88591Regex = new RegExp(/^[\u0000-\u00FF]+$/);
+  return ISO88591Regex.test(text);
+}
+
+const isKanji= (text: string) => {
+  // Kanji character range in Unicode
+  const kanjiRegex = /[\u4E00-\u9FFF]/;
+  return kanjiRegex.test(text);
+}
+
+export { textToBinaryString, isNumeric, isAlphaNumeric, isByteMode, isKanji };
 
 
