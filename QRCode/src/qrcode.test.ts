@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { isAlphaNumeric, isByteMode, isKanji, isNumeric, textToBinaryString } from './qrcode'
+import { isAlphaNumeric, isByteMode, isKanji, isNumeric, textToBinaryString, modeDetector } from './qrcode'
 
 test('testing string converting to a binary string', () => {
   expect(textToBinaryString('hi')).toBe('0110100001101001');
@@ -21,6 +21,8 @@ test('testing various string against isAlphaNumeric', () => {
   expect(isAlphaNumeric('$abc123')).toBe(true);
   expect(isAlphaNumeric('!abc#@#123)')).toBe(false);
   expect(isAlphaNumeric('ab*c123%')).toBe(true);
+  expect(isAlphaNumeric('Hello World')).toBe(true);
+  expect(isAlphaNumeric('Hello World!')).toBe(false);
 });
 
 test('testing varisous string against isByteMode', () => {
@@ -33,5 +35,12 @@ test('testing various string against isKanji', () => {
   expect(isKanji('日')).toBe(true);
   expect(isKanji('今日は')).toBe(true);
   expect(isKanji('お元気ですか')).toBe(true);
+});
+
+test('testing various string against modeDetector', () => {
+  expect(modeDetector('abc123')).toBe('0010');
+  expect(modeDetector('Hello World!')).toBe('0100');
+  expect(modeDetector('日')).toBe('1000');
+  expect(modeDetector('123')).toBe('0001');
 });
 

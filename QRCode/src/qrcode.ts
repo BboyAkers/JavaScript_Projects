@@ -8,7 +8,7 @@ const isNumeric = (text: string) => {
   return numericRegex.test(text);
 }
 const isAlphaNumeric = (text:string) => {
-  const alphaNumericCharactersRegex = new RegExp(/^[a-zA-Z0-9$%*+\-.\/:]+$/)
+  const alphaNumericCharactersRegex = new RegExp(/^[a-zA-Z0-9$%*+\-.\/: ]+$/)
   return alphaNumericCharactersRegex.test(text);
 }
 
@@ -18,12 +18,28 @@ const isByteMode = (text: string) => {
   return ISO88591Regex.test(text);
 }
 
-const isKanji= (text: string) => {
+const isKanji = (text: string) => {
   // Kanji character range in Unicode
   const kanjiRegex = /[\u4E00-\u9FFF]/;
   return kanjiRegex.test(text);
 }
 
-export { textToBinaryString, isNumeric, isAlphaNumeric, isByteMode, isKanji };
+const modeDetector = (text: string) => {
+  let selectedMode: string;
+  switch (true) {
+    case isNumeric(text):
+      return selectedMode = '0001';
+    case isAlphaNumeric(text):
+      return selectedMode = '0010';
+    case isByteMode(text):
+      return selectedMode = '0100';
+    case isKanji(text):
+      return selectedMode = '1000';
+    default:
+      return selectedMode = '0000';
+  }
+}
+
+export { textToBinaryString, isNumeric, isAlphaNumeric, isByteMode, isKanji, modeDetector };
 
 
