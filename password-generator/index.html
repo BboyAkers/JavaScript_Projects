@@ -31,15 +31,15 @@
           <span class="text-3xl text-green">30</span>
         </div>
         <form id="passwordForm">
-          <input name="passwordLength" aria-label="password length" type="range" value="5" min="0" max="30"
-            class="w-full my-6 cursor-pointer accent-green" />
+          <input id="passwordLength" name="passwordLength" aria-label="password length" type="range" value="0" min="0"
+            max="30" class="w-full my-6 cursor-pointer accent-green" />
 
           <div>
-            <input checked type="checkbox" id="uppercaseLetters" name="uppercaseLetters" value="uppercase" class="">
-            <label for="uppercaseLetters">Include Uppercase Letters</label>
+            <input checked type="checkbox" id="includeUppercase" name="includeUppercase" value="uppercase" class="">
+            <label for="includeUppercase">Include Uppercase Letters</label>
             <br>
-            <input type="checkbox" id="lowercaseLetters" name="lowercaseLetters" value="lowercase">
-            <label for="lowercaseLetters">Include Lowercase Letters</label>
+            <input type="checkbox" id="includeLowercase" name="includeLowercase" value="lowercase">
+            <label for="includeLowercase">Include Lowercase Letters</label>
             <br>
             <input type="checkbox" id="includeNumbers" name="includeNumbers" value="numbers">
             <label for="includeNumbers">Include Numbers</label>
