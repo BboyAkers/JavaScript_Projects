@@ -17,4 +17,8 @@
   input[type=checkbox] {
     @apply w-4 h-4 mb-4 accent-green;
   }
+
+  .password-strength {
+    @apply inline-block w-[10px] align-middle border-2 border-white h-7;
+  }
 }

@@ -14,9 +14,16 @@
 <body>
   <main class="flex items-center h-screen text-white bg-grey-dark">
     <section class="mx-auto w-[540px]">
-      <h1 class="pb-8 text-2xl text-center text-gray">Password Generator</h1>
-      <div class="mb-8">
-        <input type="text" placeholder="Generate a Password" class="w-full h-20 pl-6 text-3xl bg-grey" />
+      <h1 class="pb-8 text-2xl text-center text-grey-light">Password Generator</h1>
+      <div class="relative mb-8">
+        <input type="text" placeholder="Generate a Password" class="w-full h-20 pl-6 text-3xl pr-14 bg-grey" />
+        <div class="absolute inset-y-0 flex items-center pr-3 cursor-pointer right-4" id="copyPassword">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" fill="none">
+            <path fill="#A4FFAF" fill-rule="evenodd"
+              d="m17.909.659 2.432 2.432c.422.422.659.994.659 1.591V17.25a2.25 2.25 0 0 1-2.25 2.25H15v2.25A2.25 2.25 0 0 1 12.75 24H2.25A2.25 2.25 0 0 1 0 21.75v-15A2.25 2.25 0 0 1 2.25 4.5H6V2.25A2.25 2.25 0 0 1 8.25 0h8.068a2.25 2.25 0 0 1 1.591.659ZM2.531 21.75h9.938a.282.282 0 0 0 .281-.281V19.5h-4.5A2.25 2.25 0 0 1 6 17.25V6.75H2.531a.281.281 0 0 0-.281.281V21.47a.281.281 0 0 0 .281.281Zm15.938-4.5H8.53a.281.281 0 0 1-.281-.281V2.53a.281.281 0 0 1 .281-.281H13.5v4.125c0 .621.504 1.125 1.125 1.125h4.125v9.469a.282.282 0 0 1-.281.281Zm-2.719-12h3v-.452a.282.282 0 0 0-.082-.198L16.4 2.332a.281.281 0 0 0-.199-.082h-.451v3Z"
+              clip-rule="evenodd" />
+          </svg>
+        </div>
       </div>
       <div class="p-6 text-white bg-grey">
         <div class="flex justify-between">
@@ -24,7 +31,7 @@
           <span class="text-3xl text-green">30</span>
         </div>
         <input name="passwordLength" aria-label="password length" type="range" value="5" min="0" max="30"
-          class="w-full mt-6 cursor-pointer accent-green" />
+          class="w-full my-6 cursor-pointer accent-green" />
 
         <div>
           <input checked type="checkbox" id="uppercaseLetters" name="uppercaseLetters" value="uppercase" class="">
@@ -40,10 +47,14 @@
           <label for="includeSymbols">Include Symbols</label>
           <br>
         </div>
-        <div class="flex justify-between p-4 bg-grey-dark text-grey-light">
+        <div class="flex items-center justify-between px-10 py-4 my-6 bg-grey-dark text-grey-light">
           <p class="text-lg">STRENGTH</p>
           <div class="inline-block">
-            <span class="text-3xl text-green">30</span>
+            <span id="strengthText" class="text-2xl text-white align-middle">MEDIUM</span>
+            <div id="strengthLevel1" class="password-strength"></div>
+            <div id="strengthLevel2" class="password-strength"></div>
+            <div id="strengthLevel3" class="password-strength"></div>
+            <div id="strengthLevel4" class="password-strength"></div>
           </div>
         </div>
         <button class="w-full py-4 text-grey-dark bg-green">GENERATE -></button>
