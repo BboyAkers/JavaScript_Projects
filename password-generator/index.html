@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Password Generator</title>
+</head>
+
+<body>
+  <main class="flex items-center h-screen text-white bg-grey-dark">
+    <section class="mx-auto w-[540px]">
+      <h1 class="pb-8 text-2xl text-center text-gray">Password Generator</h1>
+      <div class="mb-8">
+        <input type="text" placeholder="Generate a Password" class="w-full h-20 pl-6 text-3xl bg-grey" />
+      </div>
+      <div class="p-6 text-white bg-grey">
+        <div class="flex justify-between">
+          <p class="text-lg">Character Length</p>
+          <span class="text-3xl text-green">30</span>
+        </div>
+        <input name="passwordLength" aria-label="password length" type="range" value="5" min="0" max="30"
+          class="w-full mt-6 cursor-pointer accent-green" />
+
+        <div>
+          <input checked type="checkbox" id="uppercaseLetters" name="uppercaseLetters" value="uppercase" class="">
+          <label for="uppercaseLetters">Include Uppercase Letters</label>
+          <br>
+          <input type="checkbox" id="lowercaseLetters" name="lowercaseLetters" value="lowercase">
+          <label for="lowercaseLetters">Include Lowercase Letters</label>
+          <br>
+          <input type="checkbox" id="includeNumbers" name="includeNumbers" value="numbers">
+          <label for="includeNumbers">Include Numbers</label>
+          <br>
+          <input type="checkbox" id="includeSymbols" name="includeSymbols" value="symbols">
+          <label for="includeSymbols">Include Symbols</label>
+          <br>
+        </div>
+        <div class="flex justify-between p-4 bg-grey-dark text-grey-light">
+          <p class="text-lg">STRENGTH</p>
+          <div class="inline-block">
+            <span class="text-3xl text-green">30</span>
+          </div>
+        </div>
+        <button class="w-full py-4 text-grey-dark bg-green">GENERATE -></button>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
