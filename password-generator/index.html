@@ -28,14 +28,14 @@
       <div class="p-6 text-white bg-grey">
         <div class="flex justify-between">
           <p class="text-lg">Character Length</p>
-          <span class="text-3xl text-green">30</span>
+          <span id="characterLength" class="text-3xl text-green">1</span>
         </div>
         <form id="passwordForm">
-          <input id="passwordLength" name="passwordLength" aria-label="password length" type="range" value="0" min="0"
-            max="30" class="w-full my-6 cursor-pointer accent-green" />
+          <input required id="passwordLength" name="passwordLength" aria-label="password length" type="range" value="0"
+            min="1" max="30" class="w-full my-6 cursor-pointer accent-green" />
 
           <div>
-            <input checked type="checkbox" id="includeUppercase" name="includeUppercase" value="uppercase" class="">
+            <input type="checkbox" id="includeUppercase" name="includeUppercase" value="uppercase" class="">
             <label for="includeUppercase">Include Uppercase Letters</label>
             <br>
             <input type="checkbox" id="includeLowercase" name="includeLowercase" value="lowercase">

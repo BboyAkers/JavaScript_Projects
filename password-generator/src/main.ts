@@ -14,10 +14,30 @@ type FormDataTypes = {
 }
 
 const generatePassword = (formData:FormDataTypes) => {
-  let password = "";
+  const { passwordLength, includeUppercase, includeLowercase, includeNumbers, includeSymbols } = formData;
+  let passwordCharacters: string[] = [];
+  if (includeUppercase) {
+    passwordCharacters = passwordCharacters.concat(uppercaseLetters);
+  }
+  if (includeLowercase) {
+    passwordCharacters = passwordCharacters.concat(lowercaseLetters);
+  }
+  if (includeNumbers) {
+    passwordCharacters = passwordCharacters.concat(numbers);
+  }
+  if (includeSymbols) {
+    passwordCharacters = passwordCharacters.concat(symbols);
+  }
+  // passwordLength = Math.min(passwordLength, 128);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const characterLength = document.querySelector('#characterLength')! as HTMLInputElement;
+  const passwordLength = document.querySelector('#passwordLength') as HTMLInputElement;
+  passwordLength.addEventListener('change', (event) => {
+    characterLength.innerText = (event.target as HTMLInputElement).value;
+  });
+
   const form = document.querySelector('#passwordForm')! as HTMLFormElement;
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -26,14 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const includeLowercase = (form.querySelector('#includeLowercase') as HTMLInputElement).checked;
     const includeNumbers = (form.querySelector('#includeNumbers') as HTMLInputElement).checked;
     const includeSymbols = (form.querySelector('#includeSymbols') as HTMLInputElement).checked;
+    if(!includeUppercase && !includeLowercase && !includeNumbers && !includeSymbols){
+      // Create error message
+      return;
+    }
     const formData: FormDataTypes = {
       passwordLength: parseInt(passwordLength),
       includeUppercase,
       includeLowercase,
       includeNumbers,
       includeSymbols
-    }
-    generatePassword(formData)
-    console.log('formData', formData);
+    };
+    generatePassword(formData);
+    console.log(formData)
   });
 });
