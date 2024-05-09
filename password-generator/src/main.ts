@@ -16,6 +16,7 @@ type FormDataTypes = {
 const generatePassword = (formData:FormDataTypes) => {
   const { passwordLength, includeUppercase, includeLowercase, includeNumbers, includeSymbols } = formData;
   let passwordCharacters: string[] = [];
+  let createdPassword: string = '';
   if (includeUppercase) {
     passwordCharacters = passwordCharacters.concat(uppercaseLetters);
   }
@@ -28,12 +29,17 @@ const generatePassword = (formData:FormDataTypes) => {
   if (includeSymbols) {
     passwordCharacters = passwordCharacters.concat(symbols);
   }
-  // passwordLength = Math.min(passwordLength, 128);
+  for (let index = 0; index < passwordLength; index++) {
+    const randomNumber = Math.round(Math.random() * passwordCharacters.length - 1)
+    createdPassword += passwordCharacters[randomNumber];
+  }
+  return createdPassword;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   const characterLength = document.querySelector('#characterLength')! as HTMLInputElement;
   const passwordLength = document.querySelector('#passwordLength') as HTMLInputElement;
+  const generatedPasswordInput = document.querySelector('#generatedPassword') as HTMLInputElement;
   passwordLength.addEventListener('change', (event) => {
     characterLength.innerText = (event.target as HTMLInputElement).value;
   });
@@ -57,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       includeNumbers,
       includeSymbols
     };
-    generatePassword(formData);
-    console.log(formData)
+    const generatedPassword = generatePassword(formData);
+    generatedPasswordInput.value = generatedPassword;
   });
 });

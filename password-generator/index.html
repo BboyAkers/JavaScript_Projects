@@ -16,7 +16,8 @@
     <section class="mx-auto w-[540px]">
       <h1 class="pb-8 text-2xl text-center text-grey-light">Password Generator</h1>
       <div class="relative mb-8">
-        <input type="text" placeholder="Generate a Password" class="w-full h-20 pl-6 text-3xl pr-14 bg-grey" />
+        <input type="text" id="generatedPassword" name="generatedPassword" placeholder="Generate a Password"
+          class="w-full h-20 pl-6 text-3xl pr-14 bg-grey" />
         <div class="absolute inset-y-0 flex items-center pr-3 cursor-pointer right-4" id="copyPassword" tabindex="1">
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" fill="none">
             <path fill="#A4FFAF" fill-rule="evenodd"
@@ -58,7 +59,10 @@
               <div id="strengthLevel4" class="password-strength"></div>
             </div>
           </div>
-          <button class="w-full py-4 text-grey-dark bg-green">GENERATE -></button>
+          <button
+            class="w-full py-4 border-2 text-grey-dark bg-green hover:bg-grey hover:text-green hover:border-green hover:border-2">
+            GENERATE ->
+          </button>
         </form>
       </div>
     </section>
