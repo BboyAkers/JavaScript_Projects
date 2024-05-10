@@ -15,9 +15,9 @@
   <main class="flex items-center h-screen text-white bg-grey-dark">
     <section class="mx-auto w-[540px]">
       <h1 class="pb-8 text-2xl text-center text-grey-light">Password Generator</h1>
-      <div class="relative mb-8">
+      <div class="relative mx-3 mb-8 md:mx-0">
         <input readonly type="text" id="generatedPassword" name="generatedPassword" placeholder="Generate a Password"
-          class="w-full h-20 pl-6 text-3xl pr-14 bg-grey" />
+          class="w-full h-20 pl-6 text-2xl md:text-3xl pr-14 bg-grey" />
         <button type="button" id="copyPassword" aria-label="Copy password button"
           class="absolute inset-y-0 flex items-center pr-3 cursor-pointer right-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" fill="none">
@@ -27,33 +27,34 @@
           </svg>
         </button>
       </div>
-      <div class="p-6 text-white bg-grey">
+      <div class="p-6 mx-3 text-white md:mx-0 bg-grey">
         <div class="flex justify-between">
           <p class="text-lg">Character Length</p>
-          <span id="characterLength" class="text-3xl text-green">1</span>
+          <span id="characterLength" class="text-3xl text-green">12</span>
         </div>
         <form id="passwordForm">
-          <input required id="passwordLength" name="passwordLength" aria-label="password length" type="range" value="0"
+          <input required id="passwordLength" name="passwordLength" aria-label="password length" type="range" value="12"
             min="1" max="30" class="w-full my-6 cursor-pointer accent-green" />
 
           <div>
-            <input required type="checkbox" id="includeUppercase" name="includeUppercase" value="uppercase" class="">
+            <input checked required type="checkbox" id="includeUppercase" name="includeUppercase" value="uppercase"
+              class="">
             <label for="includeUppercase">Include Uppercase Letters</label>
             <br>
-            <input type="checkbox" id="includeLowercase" name="includeLowercase" value="lowercase">
+            <input checked type="checkbox" id="includeLowercase" name="includeLowercase" value="lowercase">
             <label for="includeLowercase">Include Lowercase Letters</label>
             <br>
-            <input type="checkbox" id="includeNumbers" name="includeNumbers" value="numbers">
+            <input checked type="checkbox" id="includeNumbers" name="includeNumbers" value="numbers">
             <label for="includeNumbers">Include Numbers</label>
             <br>
-            <input type="checkbox" id="includeSymbols" name="includeSymbols" value="symbols">
+            <input checked type="checkbox" id="includeSymbols" name="includeSymbols" value="symbols">
             <label for="includeSymbols">Include Symbols</label>
             <br>
           </div>
-          <div class="flex items-center justify-between px-10 py-4 my-6 bg-grey-dark text-grey-light">
-            <p class="text-lg">STRENGTH</p>
+          <div class="flex items-center justify-between px-6 py-4 my-6 md:px-10 bg-grey-dark text-grey-light">
+            <p class="md:text-lg">STRENGTH</p>
             <div class="inline-block">
-              <span id="strengthText" class="text-2xl text-white align-middle"></span>
+              <span id="strengthText" class="text-white align-middle md:text-2xl"></span>
               <div class="password-strength"></div>
               <div class="password-strength"></div>
               <div class="password-strength"></div>

@@ -1,4 +1,4 @@
-import './style.css'
+import './style.css';
 
 const uppercaseLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 const lowercaseLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -125,10 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const includeLowercase = (form.querySelector('#includeLowercase') as HTMLInputElement).checked;
     const includeNumbers = (form.querySelector('#includeNumbers') as HTMLInputElement).checked;
     const includeSymbols = (form.querySelector('#includeSymbols') as HTMLInputElement).checked;
-    if(!includeUppercase && !includeLowercase && !includeNumbers && !includeSymbols){
-      
-      return;
-    }
+
     const formData: FormDataTypes = {
       passwordLength: parseInt(passwordLength),
       includeUppercase,
