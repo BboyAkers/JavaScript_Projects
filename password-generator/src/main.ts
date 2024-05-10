@@ -58,9 +58,6 @@ const passwordStrengthChecker = (password:string) => {
   if(password.length < 8 ) {
     passwordStrength -= 1;
   }
-  if(password.length <= 0) {
-    passwordStrength = 1;
-  }
   return passwordStrength;
 }
 
@@ -70,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const generatedPasswordInput = document.querySelector('#generatedPassword') as HTMLInputElement;
   const passwordStrengthBars = document.querySelectorAll('.password-strength') as NodeListOf<HTMLDivElement>;
   const strengthText = document.querySelector('#strengthText') as HTMLDivElement
-  const passwordBarBaseClasses = passwordStrengthBars[0].classList;
+
   const updatePasswordStrengthBars = (passwordStrength: number) => {
     // Reset classes
     for (let i = 0; i < passwordStrengthBars.length; i++) {
@@ -105,6 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
       break;
 
     default:
+      strengthText.innerText = 'TOO WEAK!';
+      passwordStrengthBars[0].classList.add('bg-red', 'border-red');
       break;
    }
   }
@@ -122,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const includeNumbers = (form.querySelector('#includeNumbers') as HTMLInputElement).checked;
     const includeSymbols = (form.querySelector('#includeSymbols') as HTMLInputElement).checked;
     if(!includeUppercase && !includeLowercase && !includeNumbers && !includeSymbols){
-      // Create error message
+      
       return;
     }
     const formData: FormDataTypes = {
