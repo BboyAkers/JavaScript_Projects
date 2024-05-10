@@ -36,10 +36,80 @@ const generatePassword = (formData:FormDataTypes) => {
   return createdPassword;
 }
 
+const passwordStrengthChecker = (password:string) => {
+  let passwordStrength = 0;
+
+  if (password.match(/[a-z]+/)) {
+    passwordStrength += 1;
+  }
+  
+  if (password.match(/[A-Z]+/)) {
+      passwordStrength += 1;
+  }
+
+  if (password.match(/[0-9]+/)) {
+      passwordStrength += 1;
+  }
+
+  if (password.match(/[$@#&!]+/)) {
+      passwordStrength += 1;
+  }
+
+  if(password.length < 8 ) {
+    passwordStrength -= 1;
+  }
+  if(password.length <= 0) {
+    passwordStrength = 1;
+  }
+  return passwordStrength;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const characterLength = document.querySelector('#characterLength')! as HTMLInputElement;
   const passwordLength = document.querySelector('#passwordLength') as HTMLInputElement;
   const generatedPasswordInput = document.querySelector('#generatedPassword') as HTMLInputElement;
+  const passwordStrengthBars = document.querySelectorAll('.password-strength') as NodeListOf<HTMLDivElement>;
+  const strengthText = document.querySelector('#strengthText') as HTMLDivElement
+  const passwordBarBaseClasses = passwordStrengthBars[0].classList;
+  const updatePasswordStrengthBars = (passwordStrength: number) => {
+    // Reset classes
+    for (let i = 0; i < passwordStrengthBars.length; i++) {
+      passwordStrengthBars[i].className = '';
+      passwordStrengthBars[i].classList = 'inline-block w-[10px] align-middle border-2 border-white h-7';
+      // passwordStrengthBars[i].classList = passwordBarBaseClasses;
+    }
+   switch (passwordStrength) {
+    case 1:
+      strengthText.innerText = 'TOO WEAK!';
+      passwordStrengthBars[0].classList.add('bg-red', 'border-red');
+      break;
+
+    case 2:
+      strengthText.innerText = 'WEAK';
+      passwordStrengthBars[0].classList.add('bg-orange', 'border-orange');
+      passwordStrengthBars[1].classList.add('bg-orange', 'border-orange');
+      break;
+    
+    case 3:
+      strengthText.innerText = 'MEDIUM';
+      passwordStrengthBars[0].classList.add('bg-yellow', 'border-yellow');
+      passwordStrengthBars[1].classList.add('bg-yellow', 'border-yellow');
+      passwordStrengthBars[2].classList.add('bg-yellow', 'border-yellow');
+      break;
+    
+    case 4:
+      strengthText.innerText = 'STRONG';
+      passwordStrengthBars[0].classList.add('bg-green', 'border-green');
+      passwordStrengthBars[1].classList.add('bg-green', 'border-green');
+      passwordStrengthBars[2].classList.add('bg-green', 'border-green');
+      passwordStrengthBars[3].classList.add('bg-green', 'border-green');
+      break;
+
+    default:
+      break;
+   }
+  }
+
   passwordLength.addEventListener('change', (event) => {
     characterLength.innerText = (event.target as HTMLInputElement).value;
   });
@@ -64,6 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
       includeSymbols
     };
     const generatedPassword = generatePassword(formData);
+    const passwordStrength = passwordStrengthChecker(generatedPassword);
     generatedPasswordInput.value = generatedPassword;
+    updatePasswordStrengthBars(passwordStrength)
   });
 });

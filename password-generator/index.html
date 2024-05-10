@@ -16,7 +16,7 @@
     <section class="mx-auto w-[540px]">
       <h1 class="pb-8 text-2xl text-center text-grey-light">Password Generator</h1>
       <div class="relative mb-8">
-        <input type="text" id="generatedPassword" name="generatedPassword" placeholder="Generate a Password"
+        <input readonly type="text" id="generatedPassword" name="generatedPassword" placeholder="Generate a Password"
           class="w-full h-20 pl-6 text-3xl pr-14 bg-grey" />
         <div class="absolute inset-y-0 flex items-center pr-3 cursor-pointer right-4" id="copyPassword" tabindex="1">
           <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" fill="none">
@@ -53,10 +53,10 @@
             <p class="text-lg">STRENGTH</p>
             <div class="inline-block">
               <span id="strengthText" class="text-2xl text-white align-middle">MEDIUM</span>
-              <div id="strengthLevel1" class="password-strength"></div>
-              <div id="strengthLevel2" class="password-strength"></div>
-              <div id="strengthLevel3" class="password-strength"></div>
-              <div id="strengthLevel4" class="password-strength"></div>
+              <div class="password-strength"></div>
+              <div class="password-strength"></div>
+              <div class="password-strength"></div>
+              <div class="password-strength"></div>
             </div>
           </div>
           <button
