@@ -62,11 +62,16 @@ const passwordStrengthChecker = (password:string) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const copyPassword = document.querySelector('#copyPassword') as HTMLDivElement;
   const characterLength = document.querySelector('#characterLength')! as HTMLInputElement;
   const passwordLength = document.querySelector('#passwordLength') as HTMLInputElement;
   const generatedPasswordInput = document.querySelector('#generatedPassword') as HTMLInputElement;
   const passwordStrengthBars = document.querySelectorAll('.password-strength') as NodeListOf<HTMLDivElement>;
-  const strengthText = document.querySelector('#strengthText') as HTMLDivElement
+  const strengthText = document.querySelector('#strengthText') as HTMLDivElement;
+
+  copyPassword.addEventListener('click', () => {
+    navigator.clipboard.writeText(generatedPasswordInput.value);
+  })
 
   const updatePasswordStrengthBars = (passwordStrength: number) => {
     // Reset classes
