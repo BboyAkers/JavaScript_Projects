@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < passwordStrengthBars.length; i++) {
       passwordStrengthBars[i].className = '';
       passwordStrengthBars[i].classList = 'inline-block w-[10px] align-middle border-2 border-white h-7';
-      // passwordStrengthBars[i].classList = passwordBarBaseClasses;
     }
    switch (passwordStrength) {
     case 1:
