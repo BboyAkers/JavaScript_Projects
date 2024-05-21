@@ -30,7 +30,7 @@ const generatePassword = (formData:FormDataTypes) => {
     passwordCharacters = passwordCharacters.concat(symbols);
   }
   for (let index = 0; index < passwordLength; index++) {
-    const randomNumber = Math.ceil(Math.random() * passwordCharacters.length - 1)
+    const randomNumber = Math.floor(Math.random() * passwordCharacters.length - 1)
     createdPassword += passwordCharacters[randomNumber];
   }
   return createdPassword;
