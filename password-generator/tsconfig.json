@@ -17,8 +17,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "suppressImplicitAnyIndexErrors": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src"]
 }

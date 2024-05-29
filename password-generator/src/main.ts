@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // dunno why you're using both className and classList here. Should just be able to do this
       bar.className = 'inline-block w-[10px] align-middle border-2 border-white h-7';
       if (i <= passwordStrength) {
+        // @ts-ignore
         bar.classList.add(...(STRENGTH_BAR_CLASSES[passwordStrength] ?? STRENGTH_BAR_CLASSES[0])) 
       }
     }
