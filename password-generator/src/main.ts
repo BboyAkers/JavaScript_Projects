@@ -4,7 +4,20 @@ const uppercaseLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
 const lowercaseLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', ':', ';', '<', '>', ',', '.', '?', '/'];
-
+const STRENGTH_BAR_CLASSES = {
+  4: ['bg-green','border-green'],
+  3: ['bg-yellow','border-yellow'],
+  2: ['bg-orange','border-orange'],
+  1: ['bg-red','border-red'],
+  0: ['bg-red','border-red'],
+}
+const STRENGTH_MESSAGES = [
+  "TOO WEAK!",
+  "TOO WEAK!",
+  "WEAK",
+  "MEDIUM",
+  "STRONG",
+]
 type FormDataTypes = {
   passwordLength: number;
   includeUppercase: boolean;
@@ -79,38 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
       passwordStrengthBars[i].className = '';
       passwordStrengthBars[i].classList.value = 'inline-block w-[10px] align-middle border-2 border-white h-7';
     }
-   switch (passwordStrength) {
-    case 1:
-      strengthText.innerText = 'TOO WEAK!';
-      passwordStrengthBars[0].classList.add('bg-red', 'border-red');
-      break;
 
-    case 2:
-      strengthText.innerText = 'WEAK';
-      passwordStrengthBars[0].classList.add('bg-orange', 'border-orange');
-      passwordStrengthBars[1].classList.add('bg-orange', 'border-orange');
-      break;
-    
-    case 3:
-      strengthText.innerText = 'MEDIUM';
-      passwordStrengthBars[0].classList.add('bg-yellow', 'border-yellow');
-      passwordStrengthBars[1].classList.add('bg-yellow', 'border-yellow');
-      passwordStrengthBars[2].classList.add('bg-yellow', 'border-yellow');
-      break;
-    
-    case 4:
-      strengthText.innerText = 'STRONG';
-      passwordStrengthBars[0].classList.add('bg-green', 'border-green');
-      passwordStrengthBars[1].classList.add('bg-green', 'border-green');
-      passwordStrengthBars[2].classList.add('bg-green', 'border-green');
-      passwordStrengthBars[3].classList.add('bg-green', 'border-green');
-      break;
-
-    default:
-      strengthText.innerText = 'TOO WEAK!';
-      passwordStrengthBars[0].classList.add('bg-red', 'border-red');
-      break;
-   }
+    strengthText.textContent = STRENGTH_MESSAGES[passwordStrength] ?? STRENGTH_MESSAGES[0];
+    for (const [i, bar] of passwordStrengthBars.entries()) {
+      // dunno why you're using both className and classList here. Should just be able to do this
+      bar.className = 'inline-block w-[10px] align-middle border-2 border-white h-7';
+      if (i <= passwordStrength) {
+        bar.classList.add(...(STRENGTH_BAR_CLASSES[passwordStrength] ?? STRENGTH_BAR_CLASSES[0])) 
+      }
+    }
   }
 
   passwordLength.addEventListener('change', (event) => {
