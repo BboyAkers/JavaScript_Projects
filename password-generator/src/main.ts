@@ -95,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     strengthText.textContent = STRENGTH_MESSAGES[passwordStrength] ?? STRENGTH_MESSAGES[0];
     for (const [i, bar] of passwordStrengthBars.entries()) {
-      // dunno why you're using both className and classList here. Should just be able to do this
       bar.className = 'inline-block w-[10px] align-middle border-2 border-white h-7';
       if (i <= passwordStrength) {
         // @ts-ignore
