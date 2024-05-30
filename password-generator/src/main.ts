@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     strengthText.textContent = STRENGTH_MESSAGES[passwordStrength] ?? STRENGTH_MESSAGES[0];
     for (const [i, bar] of passwordStrengthBars.entries()) {
       bar.className = 'inline-block w-[10px] align-middle border-2 border-white h-7';
-      if (i <= passwordStrength) {
+      if (i < passwordStrength) {
         // @ts-ignore
         bar.classList.add(...(STRENGTH_BAR_CLASSES[passwordStrength] ?? STRENGTH_BAR_CLASSES[0])) 
       }
