@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+  body {
+    @apply px-4
+  }
+}
