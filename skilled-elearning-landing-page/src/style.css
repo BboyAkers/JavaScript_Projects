@@ -10,9 +10,9 @@
     @apply bg-gradient-to-b from-white to-white-dark;
   }
   header {
-    @apply px-4;
+    @apply px-4 md:px-20;
   }
   main {
-    @apply px-4;
+    @apply px-4 md:px-20;
   }
 }

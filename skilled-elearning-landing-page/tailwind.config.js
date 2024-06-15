@@ -27,7 +27,7 @@ export default {
           DEFAULT: '#FFFFFF',
           dark: '#F0F1FF'
         }
-      }
+      },
     },
   },
   plugins: [],

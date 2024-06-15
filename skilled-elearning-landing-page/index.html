@@ -28,25 +28,30 @@
     </nav>
   </header>
   <main>
-    <section>
-      <div>
-        <h1 class="mb-6 text-4xl font-bold">Maximize skill, minimize budget</h1>
-        <p class="mb-4 text-gray">
-          Our modern courses across a range of in-demand skills will give you the knowledge you need to live the life
-          you want.
-        </p>
-        <a href="#"
-          class="inline-block px-6 py-3 text-center text-white rounded-full bg-gradient-to-b from-orange to-pink">Get
-          Started</a>
+    <section class="grid grid-cols-1 md:grid-cols-2 md:h-[60vh] md:mb-24">
+      <div class="flex items-center justify-center">
+        <div class="">
+          <h1 class="mb-6 text-4xl font-bold">Maximize skill, minimize budget</h1>
+          <p class="mb-4 text-gray">
+            Our modern courses across a range of in-demand skills will give you the knowledge you need to live the life
+            you want.
+          </p>
+          <a href="#"
+            class="inline-block px-6 py-3 text-center text-white rounded-full bg-gradient-to-b from-orange to-pink">Get
+            Started</a>
+        </div>
       </div>
-      <div>
-        <img src="/image-hero-mobile.webp"
+      <div class="min-h-72">
+        <img src="/image-hero-mobile.webp" class="md:hidden"
+          alt="picture of person sipping coffee. Info about members: 29k and course hours: 1,451" />
+        <img src="/image-hero-tablet.webp" class="absolute hidden -top-10 -right-72 md:block"
           alt="picture of person sipping coffee. Info about members: 29k and course hours: 1,451" />
       </div>
     </section>
-    <section class="grid grid-cols-1 gap-16 mb-16">
+    <section class="grid grid-cols-1 gap-16 mb-16 md:gap-x-4 md:grid-cols-2">
       <article>
-        <div class="h-[120px] bg-gradient-to-b from-orange to-pink text-white rounded-lg flex items-center pl-6">
+        <div
+          class="h-[120px] bg-gradient-to-b from-orange to-pink text-white rounded-lg flex items-center pl-6 md:h-full">
           <h2 class="text-2xl font-semibold">Check out our most popular courses!</h2>
         </div>
       </article>
