@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+  body {
+    @apply bg-gradient-to-b from-white to-white-dark;
+  }
+  header {
+    @apply px-4 md:px-20 lg:mx-40;
+  }
+  main {
+    @apply px-4 md:px-20 lg:mx-40;
+  }
+}
