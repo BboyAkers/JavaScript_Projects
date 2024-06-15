@@ -23,6 +23,10 @@ export default {
         'orange': {
           DEFAULT: '#FF6F48',
         },
+        'white': {
+          DEFAULT: '#FFFFFF',
+          dark: '#F0F1FF'
+        }
       }
     },
   },

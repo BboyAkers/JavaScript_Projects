@@ -7,6 +7,12 @@
     font-family: "Plus Jakarta Sans", sans-serif;
   }
   body {
-    @apply px-4
+    @apply bg-gradient-to-b from-white to-white-dark;
+  }
+  header {
+    @apply px-4;
+  }
+  main {
+    @apply px-4;
   }
 }
