@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { isAlphaNumeric, isByteMode, isKanji, isNumeric, textToBinaryString, modeDetector } from './qrcode'
+import { isAlphaNumeric, isByteMode, isKanji, isNumeric, textToBinaryString, modeDetector, getErrorCorrectionLevel, ErrorCorrectionLevel } from './qrcode'
 
 test('testing string converting to a binary string', () => {
   expect(textToBinaryString('hi')).toBe('0110100001101001');
@@ -44,3 +44,9 @@ test('testing various string against modeDetector', () => {
   expect(modeDetector('123')).toBe('0001');
 });
 
+test('testing various string against getErrorCorrectionLevel', () => {
+  expect(getErrorCorrectionLevel('L')).toBe(ErrorCorrectionLevel.L);
+  expect(getErrorCorrectionLevel('M')).toBe(ErrorCorrectionLevel.M);
+  expect(getErrorCorrectionLevel('Q')).toBe(ErrorCorrectionLevel.Q);
+  expect(getErrorCorrectionLevel('H')).toBe(ErrorCorrectionLevel.H);
+})
