@@ -25,7 +25,7 @@ test('testing various string against isAlphaNumeric', () => {
   expect(isAlphaNumeric('Hello World!')).toBe(false);
 });
 
-test('testing varisous string against isByteMode', () => {
+test('testing various string against isByteMode', () => {
   expect(isByteMode('Hello World!')).toBe(true);
   expect(isByteMode('Ž')).toBe(false); // should be true. TODO: Fix this.
 });
