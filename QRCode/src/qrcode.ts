@@ -40,27 +40,6 @@ const modeDetector = (text: string) => {
   }
 }
 
-export const enum ErrorCorrectionLevel {
-  L = 1,
-  M = 2,
-  Q = 3,
-  H = 4
-}
-
-export const getErrorCorrectionLevel = (errorCorrectionLevel: 'L' | 'M' | 'Q' | 'H') => {
-  switch (errorCorrectionLevel) {
-    case 'L':
-      return ErrorCorrectionLevel.L;
-    case 'M':
-      return ErrorCorrectionLevel.M;
-    case 'Q':
-      return ErrorCorrectionLevel.Q;
-    case 'H':
-      return ErrorCorrectionLevel.H;
-    default:
-      return ErrorCorrectionLevel.L;
-  }
-}
 
 export { textToBinaryString, isNumeric, isAlphaNumeric, isByteMode, isKanji, modeDetector };
 
