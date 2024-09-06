@@ -7,16 +7,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=League+Spartan:wght@400;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=League+Spartan:wght@400@700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/src/style.css">
   <title>Planet Facts</title>
 </head>
 
 <body>
-  <header>
-    <h1>Planet Facts</h1>
+  <header class="flex justify-between p-6 border-b-[1px] border-b-grey items-center">
+    <h2 class="text-2xl">THE PLANETS</h2>
+    <div><img src="/assets/icon-hamburger.svg" alt="logo"></div>
   </header>
+  <main>
+    <nav class="flex justify-between p-6 border-b-[1px] border-b-grey">
+      <button>
+        OVERVIEW
+      </button>
+      <button>
+        STRUCTURE
+      </button>
+      <button>
+        SURFACE
+      </button>
+    </nav>
+
+    <section class="h-[30vh] flex justify-center items-center">
+      <div>
+        <img class="w-28" src="/assets/planet-mercury.svg" alt="mercury">
+      </div>
+    </section>
+    <section class="px-6">
+      <div class="text-center">
+        <h1 class="pb-5 text-4xl">MERCURY</h1>
+        <p>
+          Mercury is the smallest planet in the Solar System and the closest to the Sun.
+          Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun's planets.
+          Mercury is one of four terrestrial planets in the Solar System, and is a rocky body like Earth.
+        </p>
+        <p class="pt-5 text-grey">Source:
+          <a href="https://en.wikipedia.org/wiki/Mercury">
+            <span class="underline">Wikipedia</span>
+            <img class="inline-block" src="/assets/icon-source.svg" alt="source icon" />
+          </a>
+        </p>
+      </div>
+      <div class="space-y-4 my-6">
+        <div class="text-grey border-[1px] border-grey p-4 flex justify-between items-center">
+          <span class="text-xs">ROTATION TIME</span>
+          <span class="text-white text-lg font-medium">58.6 DAYS</span>
+        </div>
+        <div class="text-grey border-[1px] border-grey p-4 flex justify-between items-center">
+          <span class="text-xs">REVOLUTION TIME</span>
+          <span class="text-white text-lg font-medium">87.97 DAYS</span>
+        </div>
+        <div class="text-grey border-[1px] border-grey p-4 flex justify-between items-center">
+          <span class="text-xs">RADIUS</span>
+          <span class="text-white text-lg font-medium">2,439.7 KM</span>
+        </div>
+        <div class="text-grey border-[1px] border-grey p-4 flex justify-between items-center">
+          <span class="text-xs">AVERAGE TEMP.</span>
+          <span class="text-white text-lg font-medium">430°c</span>
+        </div>
+      </div>
+      <div></div>
+    </section>
+  </main>
   <script type="module" src="/src/main.ts"></script>
 </body>
 

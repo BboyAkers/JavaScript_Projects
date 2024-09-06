@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 body { 
-  @apply bg-stars bg-black;
+  @apply bg-stars bg-blue-dark;
 }
 
 @layer base {
   html {
     font-family: "League Spartan", sans-serif, system-ui;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 100;
     font-style: normal;
     @apply text-white;
   }
@@ -20,7 +20,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    @apply text-[5rem]
+    @apply text-6xl;
   }
 
   h2 {
