@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/src/style.css" rel="stylesheet">
+  <title>Todo App</title>
+</head>
+
+<body class="min-h-screen bg-gray-50 px-4 py-8 sm:px-6 lg:px-8">
+  <header class="flex justify-center align-middle">
+    <div class="max-w-[540px] w-full">
+      <h1 class="text-4xl tracking-[0.4em] inline-block text-white my-6">TODO</h1>
+    </div>
+  </header>
+  <main>
+    <section class="flex justify-center align-middle">
+      <div class="max-w-[540px] w-full">
+        <form id="add-todo-form">
+          <input id="new-todo" type="text" placeholder="Create a new todo..."
+            class="h-16 placeholder:text-gray-600 bg-white w-full rounded-md px-4" />
+        </form>
+
+        <div class="my-8 bg-white rounded-md shadow-lg">
+          <p class="text-center text-gray-600 py-8" id="todos-message"></p>
+          <ul id="todo-list" class="divide-y divide-gray-300"></ul>
+          <div class="flex justify-between items-center text-gray-500 text-sm px-4 py-3 shadow-md">
+            <span id="todos-left"></span>
+            <div class="space-x-4">
+              <button type="button" id="filter-all" class="hover:text-blue-500">All</button>
+              <button type="button" id="filter-active" class="hover:text-blue-500">Active</button>
+              <button type="button" id="filter-completed" class="hover:text-blue-500">Completed</button>
+            </div>
+            <button type="button" id="clear-completed-todos" class="hover:text-red-500">Clear Completed</button>
+          </div>
+        </div>
+    </section>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

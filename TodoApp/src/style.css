@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-purple-800: #393A4B;
+  --color-purple-700: #4D5067;
+  --color-purple-600: #5B5E7E;
+  --color-purple-300: #C8CBE7;
+  --color-purple-100: #E3E4F1;
+
+  --color-gray-600: #9495A5;
+  --color-gray-300: #D1D2DA;
+  --color-gray-50: #FAFAFA;
+
+  --color-navy-950: #171823;
+  --color-navy-900: #25273D;
+  --color-navy-850: #494C6B;
+
+  --color-blue-500: #3A7CFD;
+
+  --gradient-blue-purple: linear-gradient(90deg, #55DDFF 0%, #C058F3 100%);
+  --gradient-dark-blue-purple: linear-gradient(90deg, #3710BD 0%, #A42395 100%);
+  
+}
+
+body {
+  background-image: url('/bg-desktop-light.jpg');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain 100%;
+
+  @media (max-width: 640px) {
+    background-image: url('/bg-mobile-light.jpg');
+  }
+}

@@ -1,0 +1,9 @@
+## Here we can define any tables in our database. This example shows how we define a type as a table using
+## the type name as the table name and specifying it is an "export" available in the REST and other external protocols.
+type TodoList @table @export {
+    id: ID @primaryKey # Here we define primary key (must be one)
+    isActive: Boolean @indexed # we can specify any attributes that should be indexed
+    isCompleted: Boolean @indexed
+    description: String
+}
+
