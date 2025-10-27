@@ -27,8 +27,9 @@
 
 body {
   background-image: url('/bg-desktop-light.jpg');
+  background-position: top center;
   background-repeat: no-repeat;
-  background-size:contain;
+  background-size: contain 100%;
 
   @media (max-width: 640px) {
     background-image: url('/bg-mobile-light.jpg');
