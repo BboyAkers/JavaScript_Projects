@@ -9,7 +9,7 @@
   <title>Todo App</title>
 </head>
 
-<body class="min-h-screen bg-gray-50 px-4 py-8 sm:px-6 lg:px-8">
+<body class="min-h-screen px-4 py-8 bg-gray-50 sm:px-6 lg:px-8">
   <header class="flex justify-center align-middle">
     <div class="max-w-[540px] w-full">
       <h1 class="text-4xl tracking-[0.4em] inline-block text-white my-6">TODO</h1>
@@ -20,20 +20,20 @@
       <div class="max-w-[540px] w-full">
         <form id="add-todo-form">
           <input id="new-todo" type="text" placeholder="Create a new todo..."
-            class="h-16 placeholder:text-gray-600 bg-white w-full rounded-md px-4" />
+            class="w-full h-16 px-4 bg-white rounded-md placeholder:text-gray-600" />
         </form>
 
         <div class="my-8 bg-white rounded-md shadow-lg">
-          <p class="text-center text-gray-600 py-8" id="todos-message"></p>
+          <p class="py-8 text-center text-gray-600" id="todos-message"></p>
           <ul id="todo-list" class="divide-y divide-gray-300"></ul>
-          <div class="flex justify-between items-center text-gray-500 text-sm px-4 py-3 shadow-md">
+          <div class="flex items-center justify-between px-4 py-3 text-sm text-gray-500 shadow-md">
             <span id="todos-left"></span>
             <div class="space-x-4">
               <button type="button" id="filter-all" class="hover:text-blue-500">All</button>
               <button type="button" id="filter-active" class="hover:text-blue-500">Active</button>
               <button type="button" id="filter-completed" class="hover:text-blue-500">Completed</button>
             </div>
-            <a href="https://github.com/HarperFast/" target="_blank" rel="noopener">GitHub Repo</a>
+            <button type="button" id="clear-completed-todos" class="hover:text-red-500">Clear Completed</button>
           </div>
         </div>
     </section>
