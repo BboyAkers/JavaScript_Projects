@@ -3,8 +3,7 @@ import './style.css'
 type Todo = {
   id: string;
   description: string;
-  isActive: boolean;
-  isCompleted: boolean;
+  status: "active" | "completed";
 }
 
 
@@ -20,17 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let todos: Todo[] = [];
   let isLoading = false;
 
-  const fetchTodos = () => {
+  const fetchTodos = async () => {
     isLoading = true;
-    // Simulate fetching todos from an API
-    setTimeout(() => {
-      todos = [
-        { id: '1', description: 'Learn TypeScript', isActive: true, isCompleted: false },
-        { id: '2', description: 'Build a Todo App', isActive: true, isCompleted: false },
-      ];
-      isLoading = false;
-      renderTodoList(todos);
-    }, 1000);
+    todos = await fetch(`${import.meta.env.VITE_API_URL}/`).then(res => res.json());
+    isLoading = false;
+    renderTodoList(todos);
   };
 
   const todoItem = (item: Todo) => {
@@ -45,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'peer mr-3 h-5 w-5 cursor-pointer';
-    checkbox.checked = item.isCompleted;
+    checkbox.checked = item.status === "completed";
     checkbox.addEventListener('change', () => {
-      isCompletedTodo(item.id);
+      changeTodoStatus(item.id);
     });
 
     const span = document.createElement('span');
@@ -86,15 +79,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     calculateTodosLeft();
     isLoading = false;
-  }
+  };
 
-  const isCompletedTodo = (id: string) => {
-    const todo = todos.find(todo => todo.id === id);
-    if (todo) {
-      todo.isCompleted = !todo.isCompleted;
+  const changeTodoStatus = async (id: string) => {
+      await fetch(`${import.meta.env.VITE_API_URL}/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          description: todos.find(todo => todo.id === id)?.description,
+          status: todos.find(todo => todo.id === id)?.status === "active" ? "completed" : "active",
+        }),
+      }).then(res => res.json());
+      fetchTodos();
       renderTodoList(todos);
       calculateTodosLeft();
-    }
   };
 
   const updateTodoDescription = (index: number, newText: string) => {
@@ -102,30 +102,42 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTodoList(todos);
   }
 
-  const addTodo = (todoText: string) => {
-    todos.push({
-      id: crypto.randomUUID(),
-      description: todoText,
-      isActive: true,
-      isCompleted: false,
-    });
+  const addTodo = async (todoText: string) => {
+    await fetch(`${import.meta.env.VITE_API_URL}/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          description: todoText,
+          status: "active",
+        }),
+      }).then(res => res.json());
+    fetchTodos();
     renderTodoList(todos);
+    calculateTodosLeft();
   }
 
-  const deleteTodo = (id: string) => {
-    todos = todos.filter(todo => todo.id !== id);
+  const deleteTodo = async(id: string) => {
+    await fetch(`${import.meta.env.VITE_API_URL}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then(res => res.json());
+    fetchTodos();
     renderTodoList(todos);
     calculateTodosLeft();
   }
 
   const calculateTodosLeft = () => {
-    const todosLeftCount = todos.filter(todo => !todo.isCompleted).length;
+    const todosLeftCount = todos.filter(todo => todo.status === "active").length;
     todosLeft.textContent = `${todosLeftCount} item${todosLeftCount === 1 ? '' : 's'} left`;
     return todosLeftCount;
   }
 
   const clearCompletedTodos = () => {
-    todos = todos.filter(todo => !todo.isCompleted);
+    todos = todos.filter(todo => todo.status === "active");
     renderTodoList(todos);
   };
 
@@ -140,12 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   filterActiveButton.addEventListener('click', () => {
-    const activeTodos = todos.filter(todo => !todo.isCompleted);
+    const activeTodos = todos.filter(todo => todo.status === "active");
     renderTodoList(activeTodos);
   });
 
   filterCompletedButton.addEventListener('click', () => {
-    const completedTodos = todos.filter(todo => todo.isCompleted);
+    const completedTodos = todos.filter(todo => todo.status === "completed");
     renderTodoList(completedTodos);
   });
 

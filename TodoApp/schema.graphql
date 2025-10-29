@@ -2,8 +2,6 @@
 ## the type name as the table name and specifying it is an "export" available in the REST and other external protocols.
 type TodoList @table @export {
     id: ID @primaryKey # Here we define primary key (must be one)
-    isActive: Boolean @indexed # we can specify any attributes that should be indexed
-    isCompleted: Boolean @indexed
+    status: String @default(value: "active") @index
     description: String
 }
-
