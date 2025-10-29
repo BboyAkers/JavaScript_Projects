@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector<HTMLFormElement>('#add-todo-form')!;
   const todosMessage = document.querySelector<HTMLParagraphElement>('#todos-message')!;
   const todosLeft = document.querySelector<HTMLSpanElement>('#todos-left')!;
-  const clearCompletedTodosButton = document.querySelector<HTMLButtonElement>('#clear-completed-todos')!;
   const filterAllButton = document.querySelector<HTMLButtonElement>('#filter-all')!;
   const filterActiveButton = document.querySelector<HTMLButtonElement>('#filter-active')!;
   const filterCompletedButton = document.querySelector<HTMLButtonElement>('#filter-completed')!;
@@ -44,6 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
       </label>
       <button
         type="button"
+        id="toggle-edit-todo-${item.id}"
+        class="mr-2 text-blue-500 hover:text-blue-700"
+      >
+        Edit
+      </button>
+      <button
+        type="button"
         id="delete-todo-${item.id}"
         class="ml-auto text-red-500 hover:text-red-700"
         data-delete-id="${item.id}"
@@ -52,17 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
       </button>
     </li>
   `;
-  const doc = parser.parseFromString(listItemTemplate, 'text/html');
+    const parsedListItem = parser.parseFromString(listItemTemplate, 'text/html');
 
-  doc.body.querySelector(`#check-todo-${item.id}`)!.addEventListener('change', () => {
-    changeTodoStatus(item.id);
-  });
+    parsedListItem.querySelector(`#check-todo-${item.id}`)!.addEventListener('change', () => {
+      changeTodoStatus(item.id);
+    });
 
-  doc.body.querySelector(`#delete-todo-${item.id}`)!.addEventListener('click', () => {
-    deleteTodo(item.id);
-  });
+    parsedListItem.querySelector(`#toggle-edit-todo-${item.id}`)!.addEventListener('click', () => {
+      const newDescription = prompt("Edit todo description:", item.description);
+      if (newDescription !== null && newDescription.trim() !== '') {
+        updateTodoDescription(item.id, newDescription.trim());
+      }
+    });
 
-  return doc.body.firstChild as HTMLLIElement;
+    parsedListItem.querySelector(`#delete-todo-${item.id}`)!.addEventListener('click', () => {
+      deleteTodo(item.id);
+    });
+
+    return parsedListItem.body.firstChild as HTMLLIElement;
   }
 
   const renderTodoList = (todos: Todo[]) => {
@@ -72,10 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const listItem = todoItem(todo);
       todoList.appendChild(listItem);
     });
-    
+
     if (!todos.length) {
       isLoading = false;
-      todosMessage.textContent= 'Please add your todo items above.';
+      todosMessage.textContent = 'Please add your todo items above.';
     }
     if (todos.length) {
       todosMessage.style.display = 'none';
@@ -85,43 +98,53 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const changeTodoStatus = async (id: string) => {
-      await fetch(`${import.meta.env.VITE_API_URL}/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          description: todos.find(todo => todo.id === id)?.description,
-          status: todos.find(todo => todo.id === id)?.status === "active" ? "completed" : "active",
-        }),
-      }).then(res => res.json());
-      fetchTodos();
-      renderTodoList(todos);
-      calculateTodosLeft();
+    await fetch(`${import.meta.env.VITE_API_URL}/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        description: todos.find(todo => todo.id === id)?.description,
+        status: todos.find(todo => todo.id === id)?.status === "active" ? "completed" : "active",
+      }),
+    }).then(res => res.json());
+    fetchTodos();
+    renderTodoList(todos);
+    calculateTodosLeft();
   };
 
-  const updateTodoDescription = (index: number, newText: string) => {
-    todos[index].description = newText;
+  const updateTodoDescription = async (id: string, newText: string) => {
+    await fetch(`${import.meta.env.VITE_API_URL}/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        description: newText,
+        status: todos.find(todo => todo.id === id)?.status,
+      }),
+    });
+    fetchTodos();
     renderTodoList(todos);
   }
 
   const addTodo = async (todoText: string) => {
     await fetch(`${import.meta.env.VITE_API_URL}/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          description: todoText,
-          status: "active",
-        }),
-      }).then(res => res.json());
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        description: todoText,
+        status: "active",
+      }),
+    }).then(res => res.json());
     fetchTodos();
     renderTodoList(todos);
     calculateTodosLeft();
   }
 
-  const deleteTodo = async(id: string) => {
+  const deleteTodo = async (id: string) => {
     await fetch(`${import.meta.env.VITE_API_URL}/${id}`, {
       method: 'DELETE',
       headers: {
@@ -138,11 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
     todosLeft.textContent = `${todosLeftCount} item${todosLeftCount === 1 ? '' : 's'} left`;
     return todosLeftCount;
   }
-
-  const clearCompletedTodos = () => {
-    todos = todos.filter(todo => todo.status === "active");
-    renderTodoList(todos);
-  };
 
   fetchTodos();
 
@@ -164,15 +182,11 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTodoList(completedTodos);
   });
 
-  clearCompletedTodosButton.addEventListener('click', () => {
-    clearCompletedTodos();
-  });
-
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const input = document.querySelector<HTMLInputElement>('#new-todo')!;
     const todoText = input.value.trim();
-    if (todoText) {
+    if (todoText !== '') {
       addTodo(todoText);
       input.value = '';
     }
