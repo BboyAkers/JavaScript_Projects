@@ -97,11 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const updateTodoDescription = (index: number, newText: string) => {
-    todos[index].description = newText;
-    renderTodoList(todos);
-  }
-
   const addTodo = (todoText: string) => {
     todos.push({
       id: crypto.randomUUID(),
