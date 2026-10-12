@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* ==========================================================================
+     Colors (from style-guide.md)
+     ========================================================================== */
+  /* Primary */
+  --color-green-500: hsl(158, 36%, 37%);
+  --color-green-700: hsl(158, 42%, 18%);
+  --color-primary: hsl(158, 36%, 37%);
+  --color-primary-dark: hsl(158, 42%, 18%);
+  --color-primary-hover: hsl(158, 42%, 18%);
+  --color-dark-cyan: hsl(158, 36%, 37%);
+  --color-very-dark-cyan: hsl(158, 42%, 18%);
+
+  /* Neutral */
+  --color-very-dark-blue: hsl(212, 21%, 14%);
+  --color-grey: hsl(228, 12%, 48%);
+  --color-gray: hsl(228, 12%, 48%);
+  --color-dark-grayish-blue: hsl(228, 12%, 48%);
+  --color-cream: hsl(30, 38%, 92%);
+  --color-white: hsl(0, 0%, 100%);
+
+  /* ==========================================================================
+     Typography (from style-guide.md)
+     ========================================================================== */
+  /* Fonts */
+  --font-sans: "Montserrat", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-serif: "Fraunces", serif;
+  --font-fraunces: "Fraunces", serif;
+  --font-display: "Fraunces", serif;
+  
+
+  /* Font Sizes */
+  --text-paragraph: 14px;
+  --text-body: 14px;
+
+  /* ==========================================================================
+     Layout / Breakpoints (from style-guide.md)
+     ========================================================================== */
+  --breakpoint-mobile: 375px;
+  --breakpoint-desktop: 1440px;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-paragraph);
+    font-weight: 500;
+    color: var(--color-grey);
+    background-color: var(--color-cream);
+  }
+}
