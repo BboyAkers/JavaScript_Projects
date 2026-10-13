@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/* --------------------------------------------------
+ * Typography / Fonts
+ * Figtree Variable Fonts (Self-hosted)
+ * -------------------------------------------------- */
+@font-face {
+  font-family: 'Figtree';
+  src: url('../assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Figtree';
+  src: url('../assets/fonts/Figtree-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+/* --------------------------------------------------
+ * Tailwind CSS v4 Theme Configuration & Design Tokens
+ * Reference: style-guide.md
+ * -------------------------------------------------- */
+@theme {
+  /* Style Guide Primary & Neutral Colors */
+  --color-yellow: hsl(47, 88%, 63%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-gray-500: hsl(0, 0%, 42%);
+  --color-gray-950: hsl(0, 0%, 7%);
+
+  /* Alternative / British English spelling aliases */
+  --color-grey-500: hsl(0, 0%, 42%);
+  --color-grey-950: hsl(0, 0%, 7%);
+
+  /* Semantic Role Tokens */
+  --color-primary: hsl(47, 88%, 63%);
+  --color-surface: hsl(0, 0%, 100%);
+  --color-text-body: hsl(0, 0%, 42%);
+  --color-text-heading: hsl(0, 0%, 7%);
+
+  /* Typography Tokens */
+  --font-figtree: 'Figtree', sans-serif;
+  --font-sans: 'Figtree', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  /* Font Weights */
+  --font-weight-medium: 500;
+  --font-weight-extrabold: 800;
+
+  /* Neo-brutalist Hard Shadows */
+  --shadow-card: 8px 8px 0px hsl(0, 0%, 7%);
+  --shadow-card-hover: 16px 16px 0px hsl(0, 0%, 7%);
+
+  /* Border Radii */
+  --radius-card: 20px;
+  --radius-badge: 4px;
+
+  /* Screen Breakpoints */
+  --breakpoint-mobile: 375px;
+  --breakpoint-desktop: 1440px;
+}
+
+/* --------------------------------------------------
+ * Base Styles
+ * -------------------------------------------------- */
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-gray-950);
+    background-color: var(--color-yellow);
+  }
+}
