@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Results summary component displaying overall score and category breakdown.">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Results summary component</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/style.css">
+  <script type="module" src="/src/main.ts"></script>
+</head>
+
+<body
+  class="bg-white md:bg-pale-blue min-h-screen flex flex-col justify-between items-center text-dark-gray-blue font-sans antialiased selection:bg-light-royal-blue selection:text-white">
+
+  <main class="w-full flex-1 flex flex-col md:items-center md:justify-center md:p-6 lg:p-8">
+    <h1 class="sr-only">Performance Results Summary</h1>
+    <article
+      class="w-full md:max-w-[736px] bg-white md:rounded-[32px] md:shadow-card flex flex-col md:flex-row overflow-hidden">
+
+      <section
+        class="bg-gradient-card text-center rounded-b-[32px] md:rounded-[32px] px-8 pt-6 pb-10 md:pt-10 md:pb-12 md:px-14 flex flex-col items-center justify-between md:w-1/2"
+        aria-labelledby="result-heading">
+        <h2 id="result-heading" class="text-light-lavender text-lg md:text-2xl font-bold tracking-wide">Your Result</h2>
+
+        <div
+          class="bg-gradient-circle rounded-full w-[140px] h-[140px] md:w-[200px] md:h-[200px] flex flex-col items-center justify-center my-6 md:my-7 shadow-inner"
+          aria-label="Score: 76 out of 100">
+          <span id="overall-score"
+            class="text-white text-5xl md:text-7xl font-extrabold leading-none mb-1 md:mb-2">76</span>
+          <span class="text-light-lavender/60 text-sm md:text-lg font-bold">of 100</span>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <h3 class="text-white text-2xl md:text-3xl font-bold mb-2 md:mb-3">Great</h3>
+          <p class="text-light-lavender text-base md:text-lg leading-snug md:leading-normal max-w-[260px] mx-auto">
+            You scored higher than 65% of the people who have taken these tests.
+          </p>
+        </div>
+      </section>
+
+      <section class="p-8 md:p-10 flex flex-col justify-between md:w-1/2 bg-white" aria-labelledby="summary-heading">
+        <h2 id="summary-heading" class="text-dark-gray-blue text-lg md:text-2xl font-bold mb-6 md:mb-7">Summary</h2>
+
+        <ul id="summary-list" class="flex flex-col gap-4 list-none p-0 m-0" role="list"></ul>
+
+        <button id="continue-btn" type="button"
+          class="btn-continue w-full mt-6 md:mt-8 py-4 px-8 rounded-full font-bold text-white text-lg cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-light-slate-blue/40 tracking-wide">
+          Continue
+        </button>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="w-full text-center py-6 px-4 text-xs text-dark-gray-blue/70">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer"
+      class="text-cobalt-blue font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt-blue rounded">Frontend
+      Mentor</a>.
+    Coded by <a href="https://github.com/BboyAkers" target="_blank" rel="noopener noreferrer"
+      class="text-cobalt-blue font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt-blue rounded">Austin
+      Akers</a>.
+  </footer>
+
+</body>
+
+</html>
